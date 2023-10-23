@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\RUIZ TORRES\\RiderProjects\\AutomovileUnit\\1.API\\1.API.csproj": {}
+    "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\1.API\\1.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\RUIZ TORRES\\RiderProjects\\AutomovileUnit\\1.API\\1.API.csproj": {
+    "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\1.API\\1.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\RUIZ TORRES\\RiderProjects\\AutomovileUnit\\1.API\\1.API.csproj",
+        "projectUniqueName": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\1.API\\1.API.csproj",
         "projectName": "1.API",
-        "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\AutomovileUnit\\1.API\\1.API.csproj",
+        "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\1.API\\1.API.csproj",
         "packagesPath": "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\AutomovileUnit\\1.API\\obj\\",
+        "outputPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\1.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\RUIZ TORRES\\AppData\\Roaming\\NuGet\\NuGet.Config",
