@@ -31,9 +31,9 @@ public class UserDomain :IUserDomain
     {       
         
         // if (tutorial.Title ==  "") return false;// No es negocio
-        var existingTutitorial = _userData.GetByName(tuser.Name);
+        var existinguser = _userData.GetByName(tuser.Name);
 
-        if (existingTutitorial == null)
+        if (existinguser == null)
         {
             return _userData.Update(tuser,id);
         }
@@ -46,5 +46,11 @@ public class UserDomain :IUserDomain
     {
         //Validar negocio
         return _userData.Delete(id);
+    }
+    public User Authenticate(string email, string password)
+    {
+        // Implementa la autenticación de usuario aquí
+        // Utiliza _userData.ValidateCredentials para validar las credenciales
+        return _userData.ValidateCredentials(email, password);
     }
 }
