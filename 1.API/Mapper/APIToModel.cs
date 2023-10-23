@@ -9,5 +9,7 @@ public class APIToModel :Profile
     public APIToModel()
     {
         CreateMap<UserRequest, User>();
+        CreateMap<UserRegisterRequest, User>();
+        CreateMap<UserLoginRequest, User>();
     }
 }

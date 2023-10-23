@@ -85,4 +85,10 @@ public class UserMsqlData :IUserData
             return false;
         }
     }
+    public User ValidateCredentials(string email, string password)
+    {
+        // Implementa la validación de credenciales aquí
+        // Puedes buscar al usuario por correo electrónico y comparar contraseñas, y luego retornar el usuario válido si las credenciales son correctas
+        return _automovileUnitBd.TUsers.FirstOrDefault(t => t.username == email && t.password == password);
+    }
 }

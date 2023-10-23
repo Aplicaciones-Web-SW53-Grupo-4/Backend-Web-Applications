@@ -1,9 +1,13 @@
-﻿using _1.API.Request;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using _1.API.Request;
 using _1.API.Response;
 using _2.Domain;
 using _3.Data.Model;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace _1.API.Controllers
 {
@@ -14,11 +18,13 @@ namespace _1.API.Controllers
         private IUserData _tuserData;
         private IUserDomain _tUserDomain;
         private IMapper _mapper;
-        public UserController(IUserData userData,IUserDomain userDomain,IMapper mapper)
+        private IConfiguration _configuration;
+        public UserController(IUserData userData,IUserDomain userDomain,IMapper mapper,IConfiguration configuration)
         {
             _tuserData = userData;
             _tUserDomain = userDomain;
             _mapper = mapper;
+            _configuration = configuration;
         }
         // GET: api/Tutorial
         [HttpGet]
@@ -50,6 +56,74 @@ namespace _1.API.Controllers
             // return _tuserData.GetById(id);
         }
         
+        
+        
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] UserRegisterRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _mapper.Map<UserRegisterRequest, User>(request);
+
+                user.UserType = UserType.Normal; // Configura el tipo de usuario
+
+                if (_tUserDomain.Create(user))
+                {
+                    return Ok("Registro exitoso");
+                }
+                else
+                {
+                    return BadRequest("El usuario ya existe o hubo un error en el registro.");
+                }
+            }
+            else
+            {
+                return BadRequest("Datos de registro no válidos");
+            }
+        }
+        // Acción para iniciar sesión y generar un token JWT
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] UserLoginRequest request)
+        {
+            var user = _tUserDomain.Authenticate(request.Username, request.Password);
+
+            if (user != null)
+            {
+                var token = GenerateJwtToken(user);
+                return Ok(new { Token = token });
+            }
+            else
+            {
+                return Unauthorized("Credenciales inválidas");
+            }
+        }
+
+        private string GenerateJwtToken(User user)
+        {
+            var securityKey = new SymmetricSecurityKey (Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.Name, user.username),
+                // Puedes agregar más claims según tus necesidades
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(int.Parse(_configuration["Jwt:DurationInMinutes"])),
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+        
+        
+        
+        
+        
         // POST: api/Tutorial
         [HttpPost]
         public IActionResult Post([FromBody] UserRequest request)
@@ -57,9 +131,9 @@ namespace _1.API.Controllers
             if (ModelState.IsValid)
             {
 
-                var tutorial = _mapper.Map<UserRequest, User>(request);
+                var users = _mapper.Map<UserRequest, User>(request);
                
-                return Ok( _tUserDomain.Create(tutorial));
+                return Ok( _tUserDomain.Create(users));
             }
             else
             {

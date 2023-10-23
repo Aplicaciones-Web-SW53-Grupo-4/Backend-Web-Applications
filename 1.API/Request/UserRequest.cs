@@ -8,9 +8,6 @@ public class UserRequest
     [MaxLength(20)]
     public string Name { get; set; }
     
-    // [Required]
-    // [Range(1990,2023)]
-    // public int Year { get; set; }
     [Required]
     [MaxLength(20)]
     public string Lastname { get; set; }
