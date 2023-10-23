@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "urjWujHRT9Gnxp8yFBHGDRGIGJ0DFHmtGJe3Rcw6mCdT4FdVj3s4RO0Vh7/UwKBU5EkRmN9OaBpZseUqPwpcWg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\AutomovileUnit\\3.Data\\3.Data.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.12\\microsoft.netcore.app.ref.7.0.12.nupkg.sha512",
+    "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.12\\microsoft.windowsdesktop.app.ref.7.0.12.nupkg.sha512",
+    "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.12\\microsoft.aspnetcore.app.ref.7.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
