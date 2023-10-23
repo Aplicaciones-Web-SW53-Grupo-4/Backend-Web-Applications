@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R7fsUnmbQpAZrhdQEsa6PB+dR3SIvC3zyPZK/sUCPhFLlCk+dNEy2azci95MOs64DbWHoV2FaE0SiOFD40zGng==",
+  "dgSpecHash": "5r4DHIm25t8idru35CYhcsL/N4pMoa7V9ZWt3erOJ4h10WGwMGueCJr/BL8Eoy+ZNa8NtOAD8vXC0jlaKIlsEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\AutomovileUnit\\2.Domain\\2.Domain.csproj",
+  "projectFilePath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.12\\microsoft.netcore.app.ref.7.0.12.nupkg.sha512",
     "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.12\\microsoft.windowsdesktop.app.ref.7.0.12.nupkg.sha512",
