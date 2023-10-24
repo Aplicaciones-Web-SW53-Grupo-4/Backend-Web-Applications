@@ -6,6 +6,7 @@ using _1.API.Response;
 using _2.Domain;
 using _3.Data.Model;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -13,6 +14,7 @@ namespace _1.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   
     public class UserController :ControllerBase
     {
         private IUserData _tuserData;
@@ -38,6 +40,7 @@ namespace _1.API.Controllers
         }
         // GET: api/Tutorial/5
         [HttpGet("{id}", Name = "Get")]
+        [Authorize]
         public  IActionResult Get(int id)
         {
             // todo esto devuelve la respuesata de userresponse
@@ -59,6 +62,7 @@ namespace _1.API.Controllers
         
         
         [HttpPost("register")]
+        
         public IActionResult Register([FromBody] UserRegisterRequest request)
         {
             if (ModelState.IsValid)
@@ -69,20 +73,24 @@ namespace _1.API.Controllers
 
                 if (_tUserDomain.Create(user))
                 {
-                    return Ok("Registro exitoso");
+                    // Registro exitoso, devuelve una respuesta 201 Created con la ubicación del nuevo usuario
+                    return CreatedAtAction("Get", new { id = user.Id }, user);
                 }
                 else
                 {
-                    return BadRequest("El usuario ya existe o hubo un error en el registro.");
+                    // El usuario ya existe o hubo un error en el registro, devuelve una respuesta 400 Bad Request
+                    return BadRequest("No se pudo registrar el usuario.");
                 }
             }
             else
             {
-                return BadRequest("Datos de registro no válidos");
+                // Datos de registro no válidos, devuelve una respuesta 400 Bad Request con detalles de validación
+                return BadRequest(ModelState);
             }
         }
         // Acción para iniciar sesión y generar un token JWT
         [HttpPost("login")]
+       
         public IActionResult Login([FromBody] UserLoginRequest request)
         {
             var user = _tUserDomain.Authenticate(request.Username, request.Password);
@@ -119,8 +127,7 @@ namespace _1.API.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-        
-        
+      
         
         
         
