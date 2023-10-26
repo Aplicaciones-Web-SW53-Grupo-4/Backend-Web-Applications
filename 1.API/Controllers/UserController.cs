@@ -40,7 +40,7 @@ namespace _1.API.Controllers
         }
         // GET: api/Tutorial/5
         [HttpGet("{id}", Name = "Get")]
-        [Authorize]
+        // [Authorize]
         public  IActionResult Get(int id)
         {
             // todo esto devuelve la respuesata de userresponse
@@ -60,7 +60,7 @@ namespace _1.API.Controllers
         }
         
         
-        
+        // POST: api/register  Acción para registrar usuario
         [HttpPost("register")]
         
         public IActionResult Register([FromBody] UserRegisterRequest request)
@@ -69,7 +69,7 @@ namespace _1.API.Controllers
             {
                 var user = _mapper.Map<UserRegisterRequest, User>(request);
 
-                user.UserType = UserType.Normal; // Configura el tipo de usuario
+                // user.UserType = UserType.Normal; // Configura el tipo de usuario
 
                 if (_tUserDomain.Create(user))
                 {
@@ -88,7 +88,7 @@ namespace _1.API.Controllers
                 return BadRequest(ModelState);
             }
         }
-        // Acción para iniciar sesión y generar un token JWT
+        // POST: api/login Acción para iniciar sesión y generar un token JWT
         [HttpPost("login")]
        
         public IActionResult Login([FromBody] UserLoginRequest request)
