@@ -9,9 +9,10 @@ public class ModelToAPI : Profile
 {
     public ModelToAPI()
     {
-        CreateMap<User, UserRequest>();
         CreateMap<User, UserRegisterRequest>();
         CreateMap<User, UserLoginRequest>();
-        CreateMap<User, UserResponse>();
+        CreateMap<User, ProfileResponse>();
+        CreateMap<Automobile, AutomobileCreateRequest>();
+        CreateMap<User,ProfileUpdateRequest>();
     }
 }
