@@ -19,6 +19,8 @@ builder.Services.AddSwaggerGen();
 //Inyeccion dependencias
 builder.Services.AddScoped<IUserData, UserMsqlData>();
 builder.Services.AddScoped<IUserDomain, UserDomain>();
+builder.Services.AddScoped<IAutomobileData, AutomobileMsqlData>();
+builder.Services.AddScoped<IAutomobileDomain, AutomobileDomain>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
