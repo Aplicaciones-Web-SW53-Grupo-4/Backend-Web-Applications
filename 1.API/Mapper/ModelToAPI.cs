@@ -12,6 +12,7 @@ public class ModelToAPI : Profile
         CreateMap<User, UserRegisterRequest>();
         CreateMap<User, UserLoginRequest>();
         CreateMap<User, ProfileResponse>();
+        CreateMap<Automobile, SearchAutomovilFilterResponse>();
         CreateMap<Automobile, AutomobileCreateRequest>();
         CreateMap<User,ProfileUpdateRequest>();
     }

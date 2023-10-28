@@ -35,9 +35,9 @@ namespace _1.API.Controllers
             {
                 return NotFound(); 
             }
-            ProfileResponse userResponse = _mapper.Map<ProfileResponse>(user);
+            ProfileResponse profileResponse = _mapper.Map<ProfileResponse>(user);
 
-            return Ok(userResponse); 
+            return Ok(profileResponse); 
             
         }
 

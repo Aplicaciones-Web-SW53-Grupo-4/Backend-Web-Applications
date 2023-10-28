@@ -13,6 +13,7 @@ public class APIToModel :Profile
         CreateMap<UserLoginRequest, User>();
         CreateMap<AutomobileCreateRequest, Automobile>();
         CreateMap<ProfileResponse,User>();
+        CreateMap<SearchAutomovilFilterResponse,Automobile>();
         CreateMap<ProfileUpdateRequest,User>();
     }
 }

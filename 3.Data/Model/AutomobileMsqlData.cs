@@ -16,7 +16,29 @@ public class AutomobileMsqlData : IAutomobileData
     {
         return this._automobileUnitBd.TAutomobiles.Where(p=>p.Id == id).First();
     }
+    
+    public Automobile GetBySearch(long id,string brand,string model)
+    {
+        return this._automobileUnitBd.TAutomobiles.Where(p=>p.Id == id && p.Brand==brand&&p.Model==model).First();
+    }
 
+    public async Task<UserAutomovileResult> GetByUserAutomobile(int id, int automovileid)
+    {
+        var user = await this._automobileUnitBd.TUsers.Where(p => p.Id == id).FirstOrDefaultAsync();
+        var automobile = await this._automobileUnitBd.TAutomobiles.Where(p => p.Id == automovileid).FirstOrDefaultAsync();
+
+        if (user != null && automobile != null)
+        {
+            return new UserAutomovileResult
+            {
+                // User = user,
+                Automobile = automobile
+            };
+        }
+        return null; // Maneja el caso en el que no se encuentren datos
+    }
+    
+    
     public Task<List<Automobile>> GetAllAsync()
     {
         return this._automobileUnitBd.TAutomobiles.ToListAsync();

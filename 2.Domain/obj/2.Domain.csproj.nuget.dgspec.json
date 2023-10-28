@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj": {}
+    "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj": {
+    "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj",
         "projectName": "2.Domain",
-        "projectPath": "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj",
-        "packagesPath": "C:\\Users\\JOSEPH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\2.Domain\\obj\\",
+        "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj",
+        "packagesPath": "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\JOSEPH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\RUIZ TORRES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {
-                "projectPath": "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\3.Data.csproj"
+              "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {
+                "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj"
               }
             }
           }
@@ -82,26 +82,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {
+    "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\3.Data.csproj",
+        "projectUniqueName": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj",
         "projectName": "3.Data",
-        "projectPath": "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\3.Data.csproj",
-        "packagesPath": "C:\\Users\\JOSEPH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\obj\\",
+        "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj",
+        "packagesPath": "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\JOSEPH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\RUIZ TORRES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -181,12 +195,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
         }
       }
     }

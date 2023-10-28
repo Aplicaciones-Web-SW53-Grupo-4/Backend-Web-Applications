@@ -35,7 +35,16 @@ public class AutomobileDomain: IAutomobileDomain
         return _automobileData.GetAllAsync();
     }
 
+    public async Task<UserAutomovileResult> GetByUserAutomobile(int id, int automovileid)
+    {
+        throw new NotImplementedException();
+    }
     public Task<Automobile> GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public Task<Automobile> GetBySearch(int id,string Brand , string Model)
     {
         throw new NotImplementedException();
     }

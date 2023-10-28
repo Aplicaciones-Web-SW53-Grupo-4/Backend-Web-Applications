@@ -1,9 +1,10 @@
-﻿namespace _3.Data.Model;
+﻿using _3.Data.Model;
 
-public class Automobile:ModelBase
+namespace _1.API.Response;
+
+public class SearchAutomovilFilterResponse
 {
     public string Brand { get; set; }
-  
     public double Price { get; set; }
     public string Model { get; set; }
     public string Color { get; set; }

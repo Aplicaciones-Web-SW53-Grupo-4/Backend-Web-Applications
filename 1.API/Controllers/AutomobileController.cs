@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _1.API.Request;
+using _1.API.Response;
 using _2.Domain;
 using _3.Data.Model;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _1.API.Controllers
@@ -35,13 +37,44 @@ namespace _1.API.Controllers
             return automobileData.GetAllAsync();
         }
 
-        // GET: api/Automobile/5
-        [HttpGet("{id}", Name = "GetAutomobile")]
-        public Automobile Get(int id)
+        // // GET: api/Automobile/userid/automovileid
+        // [HttpGet("userid/automovileid")]
+        // public Automobile Get(int id)
+        // {
+        //     return automobileData.GetById(id);
+        // }
+        
+        // GET: api/Automobile/userid/automovileid
+        [HttpGet("userid/automovileid")]
+        public async Task<IActionResult> Get(int id, int userid)
         {
-            return automobileData.GetById(id);
+            var result = await automobileData.GetByUserAutomobile(id, userid);
+    
+            if (result != null)
+            {
+                return Ok(result); // Devuelve un resultado 200 OK
+            }
+    
+            return NotFound(); // Devuelve un resultado 404 Not Found u otro resultado apropiado si los datos no se encuentran
+        }
+        
+         
+        // GET: api/Automobile/search
+        [HttpGet(  "search-car/getfilter")]
+        public IActionResult Get(int id,string Brand,string Model)
+        {
+            Automobile automobile = automobileData.GetBySearch(id,Brand,Model);
+            if (automobile == null)
+            {
+                return NotFound(); 
+            }
+
+            SearchAutomovilFilterResponse searchAutomovilFilterResponse =
+                _mapper.Map<SearchAutomovilFilterResponse>(automobile);
+            return Ok(searchAutomovilFilterResponse);
         }
 
+        
         // POST: api/Automobile
         [HttpPost("register")]
         public IActionResult Post([FromBody] AutomobileCreateRequest value)
@@ -51,12 +84,6 @@ namespace _1.API.Controllers
             automobile.IsAvailable = true;
             return Ok(automobileDomain.Create(automobile, value.UserId));
         }
-        // [HttpPost("search-car")]
-        // public IActionResult SearchCarByFilter([FromBody] AutomobileSearchRequest value)
-        // {
-        //     var automobile = _mapper.Map<AutomobileSearchRequest,Automobile>(value);
-        //     return Ok(automobileData.SearchCarByFilter(automobile));
-        // }
         
         // DELETE: api/Automobile/5
         [HttpDelete("{id}")]

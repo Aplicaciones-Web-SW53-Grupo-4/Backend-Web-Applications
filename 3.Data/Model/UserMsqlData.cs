@@ -22,6 +22,7 @@ public class UserMsqlData :IUserData
     {
         return _automovileUnitBd.TUsers.Where(t => t.Name ==name && t.IsActive).FirstOrDefault();
     }
+    
     public async Task<List<User>> GetAllAsync()
     {
         return await _automovileUnitBd.TUsers.Where(t => t.IsActive).ToListAsync();
