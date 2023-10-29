@@ -13,14 +13,16 @@ public class UserMsqlData :IUserData
     }
     public User GetById(int id)
     {
-            
-        return _automovileUnitBd.TUsers.Where(t => t.Id == id && t.IsActive).First();
+        User user = _automovileUnitBd.TUsers.Where(t => t.Id == id && t.IsActive).FirstOrDefault();
+        _automovileUnitBd.Entry(user).Collection(u=>u.Automobiles).Load();
+        return user;
 
     }
     public User GetByName(string name)
     {
         return _automovileUnitBd.TUsers.Where(t => t.Name ==name && t.IsActive).FirstOrDefault();
     }
+    
     public async Task<List<User>> GetAllAsync()
     {
         return await _automovileUnitBd.TUsers.Where(t => t.IsActive).ToListAsync();
@@ -46,7 +48,7 @@ public class UserMsqlData :IUserData
 
             userToBeUpdated.Name = tuser.Name;
             userToBeUpdated.Lastname = tuser.Lastname;
-            userToBeUpdated.Country = tuser.Country;
+            userToBeUpdated.Adress = tuser.Adress;
             userToBeUpdated.phone = tuser.phone;
             
             userToBeUpdated.DateUpdate = DateTime.Now;

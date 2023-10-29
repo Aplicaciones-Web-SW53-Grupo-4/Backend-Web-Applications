@@ -23,8 +23,7 @@ public class UserRegisterRequest
     [MaxLength(20)]
     public string Lastname { get; set; }
     [Required]
-    [MaxLength(20)]
-    public string Country { get; set; }
+    public Adress Adress { get; set; }
     [Required]
     [MaxLength(20)]
     public string phone { get; set; }
