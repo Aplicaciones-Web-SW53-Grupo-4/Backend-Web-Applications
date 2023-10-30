@@ -9,7 +9,7 @@ public interface IAutomobileDomain
     Task<List<Automobile>> GetAll();
     Task<Automobile> GetById(int id);
     
-    Task<Automobile> GetBySearch(int id,string Brand, string Model);
+    Task<List<Automobile>> GetBySearch(string Brand, string Model);
     
     Task<Automobile> SearchByFilter(Automobile filter);
 }

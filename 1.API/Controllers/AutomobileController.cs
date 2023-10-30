@@ -61,16 +61,15 @@ namespace _1.API.Controllers
          
         // GET: api/Automobile/search
         [HttpGet(  "search-car/getfilter")]
-        public IActionResult Get(int id,string Brand,string Model)
+        public IActionResult Get(string Brand,string Model)
         {
-            Automobile automobile = automobileData.GetBySearch(id,Brand,Model);
+            Task<List<Automobile>> automobile = automobileData.GetBySearch(Brand,Model);
             if (automobile == null)
             {
                 return NotFound(); 
             }
-
-            SearchAutomovilFilterResponse searchAutomovilFilterResponse =
-                _mapper.Map<SearchAutomovilFilterResponse>(automobile);
+            Task<List<SearchAutomovilFilterResponse>> searchAutomovilFilterResponse =
+                _mapper.Map< Task<List<Automobile>> , Task<List<SearchAutomovilFilterResponse>>>(automobile);
             return Ok(searchAutomovilFilterResponse);
         }
 

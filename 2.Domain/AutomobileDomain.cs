@@ -44,7 +44,7 @@ public class AutomobileDomain: IAutomobileDomain
         throw new NotImplementedException();
     }
     
-    public Task<Automobile> GetBySearch(int id,string Brand , string Model)
+    public Task<List<Automobile>> GetBySearch(string Brand , string Model)
     {
         throw new NotImplementedException();
     }

@@ -3,7 +3,7 @@
 public interface IAutomobileData
 {
     public Automobile GetById(long id);
-    public Automobile GetBySearch(long id,string Brand , string Model);
+    public Task<List<Automobile>> GetBySearch(string Brand , string Model);
     public Task<UserAutomovileResult> GetByUserAutomobile(int id,int automobileid);
     public Task<List<Automobile>> GetAllAsync();
     public bool Create(Automobile automobile);

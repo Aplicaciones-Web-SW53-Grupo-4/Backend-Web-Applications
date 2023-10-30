@@ -15,5 +15,10 @@ public class APIToModel :Profile
         CreateMap<ProfileResponse,User>();
         CreateMap<SearchAutomovilFilterResponse,Automobile>();
         CreateMap<ProfileUpdateRequest,User>();
+        CreateMap< Task<List<SearchAutomovilFilterResponse>>,Task<List<Automobile>> >();
+        CreateMap<RentRequest, RequestRent>();
+        CreateMap<AutomobileResponse, Automobile>();
+        CreateMap<OwnerResponse, User>();
+        CreateMap<RequestRentOwnerResponse, RequestRent>();
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {}
+    "C:\\Users\\JOSEPH\\Desktop\\nuevo\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {
+    "C:\\Users\\JOSEPH\\Desktop\\nuevo\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\3.Data.csproj",
+        "projectUniqueName": "C:\\Users\\JOSEPH\\Desktop\\nuevo\\Backend-Web-Applications\\3.Data\\3.Data.csproj",
         "projectName": "3.Data",
-        "projectPath": "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\3.Data.csproj",
+        "projectPath": "C:\\Users\\JOSEPH\\Desktop\\nuevo\\Backend-Web-Applications\\3.Data\\3.Data.csproj",
         "packagesPath": "C:\\Users\\JOSEPH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JOSEPH\\Desktop\\backend-aplicaciones-web\\Backend-Web-Applications\\3.Data\\obj\\",
+        "outputPath": "C:\\Users\\JOSEPH\\Desktop\\nuevo\\Backend-Web-Applications\\3.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JOSEPH\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -17,9 +17,9 @@ public class AutomobileMsqlData : IAutomobileData
         return this._automobileUnitBd.TAutomobiles.Where(p=>p.Id == id).First();
     }
     
-    public Automobile GetBySearch(long id,string brand,string model)
+    public Task<List<Automobile>> GetBySearch(string brand,string model)
     {
-        return this._automobileUnitBd.TAutomobiles.Where(p=>p.Id == id && p.Brand==brand&&p.Model==model).First();
+        return this._automobileUnitBd.TAutomobiles.Where(p=>  p.Brand==brand&&p.Model==model).ToListAsync();
     }
 
     public async Task<UserAutomovileResult> GetByUserAutomobile(int id, int automovileid)
@@ -67,7 +67,6 @@ public class AutomobileMsqlData : IAutomobileData
             automobilToUpdate.Brand = automobile.Brand;
             automobilToUpdate.ClassType = automobile.ClassType;
             automobilToUpdate.Color = automobile.Color;
-            automobilToUpdate.Description = automobile.Description;
             automobilToUpdate.IsAvailable = automobile.IsAvailable;
             automobilToUpdate.Model = automobile.Model;
             this._automobileUnitBd.TAutomobiles.Update(automobilToUpdate);

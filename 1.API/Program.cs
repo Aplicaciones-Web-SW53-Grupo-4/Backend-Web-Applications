@@ -2,6 +2,7 @@
 using System.Text;
 using _1.API.Mapper;
 using _2.Domain;
+using _3.Data;
 using _3.Data.Context;
 using _3.Data.Model;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -21,6 +22,8 @@ builder.Services.AddScoped<IUserData, UserMsqlData>();
 builder.Services.AddScoped<IUserDomain, UserDomain>();
 builder.Services.AddScoped<IAutomobileData, AutomobileMsqlData>();
 builder.Services.AddScoped<IAutomobileDomain, AutomobileDomain>();
+builder.Services.AddScoped<IRequestRentData, RequestRentMsqlData>();
+builder.Services.AddScoped<IRequestRentDomain, RequestRentDomain>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {

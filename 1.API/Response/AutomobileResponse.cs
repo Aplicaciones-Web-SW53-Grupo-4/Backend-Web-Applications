@@ -1,6 +1,8 @@
-﻿namespace _3.Data.Model;
+﻿using _3.Data.Model;
 
-public class Automobile:ModelBase
+namespace _1.API.Response;
+
+public class AutomobileResponse
 {
     public string Brand { get; set; }
   
@@ -19,8 +21,4 @@ public class Automobile:ModelBase
     
     public string Place { get; set; }
     public int TimeRent { get; set; }
-    //public byte[] Image { get; set; }
-    
-    public int UserId { get; set; }
-    private User User { get; set; }
 }

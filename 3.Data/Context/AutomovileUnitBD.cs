@@ -16,7 +16,8 @@ public class AutomovileUnitBD : DbContext
 
     public DbSet<User> TUsers { get; set; }
     public DbSet<Automobile> TAutomobiles { get; set; }
-
+    
+    public DbSet<RequestRent> TRentRequests { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
@@ -51,6 +52,15 @@ public class AutomovileUnitBD : DbContext
             entity.ToTable("Aumontovil");
             entity.HasKey(p => p.Id);
             entity.Property(c => c.Brand).IsRequired().HasMaxLength(50);
+        });
+        
+        builder.Entity<RequestRent>(entity =>
+        {
+            entity.ToTable("RequestRent");
+            entity.HasKey(p => p.Id);
+            entity.Property(c => c.StatusRequest).IsRequired();
+            entity.Property(c => c.DateCreated).HasDefaultValue(DateTime.Now);
+            entity.Property(c => c.DateUpdate).HasDefaultValue(DateTime.Now);
         });
     }
 }
