@@ -18,13 +18,7 @@ public class AutomobileCreateRequest
     public string Color { get; set; }
     
     [Required]
-    public string MaxSpeed { get; set; }
-    
-    [Required]
-    public string Kilometers { get; set; }
-    
-    [Required]
-    public int QuantityDoors { get; set; }
+    public int QuantitySeat{ get; set; }
     
     [Required]
     public AutomovilTransmissionType TransmissionType { get; set; }
@@ -39,7 +33,7 @@ public class AutomobileCreateRequest
     public string Place { get; set; }
     
     [Required]
-    public int TimeRent { get; set; }
+    public string TimeRent { get; set; }
 
     //public byte[] Image { get; set; }
     

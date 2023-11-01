@@ -30,6 +30,7 @@ namespace _1.API.Controllers
             this._mapper = mapper;
             this._userData = userData;
         }
+        
         // GET: api/search-car/getAll
         [HttpGet("search-car/getAll")]
         public Task<List<Automobile>> Get()
