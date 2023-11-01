@@ -44,6 +44,7 @@ namespace _1.API.Controllers
         
         public IActionResult Register([FromBody] UserRegisterRequest request)
         {
+            Console.WriteLine(request);
             if (ModelState.IsValid)
             {
                 var user = _mapper.Map<UserRegisterRequest, User>(request);
@@ -64,27 +65,29 @@ namespace _1.API.Controllers
             else
             {
                 // Datos de registro no válidos, devuelve una respuesta 400 Bad Request con detalles de validación
-                return BadRequest(ModelState);
+                var errors = ModelState.Values.SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage).ToList();
+            
+                return BadRequest(new { errors });
             }
         }
         // Acción para iniciar sesión y generar un token JWT
         [HttpPost("login")]
-       
         public IActionResult Login([FromBody] UserLoginRequest request)
         {
             var user = _tUserDomain.Authenticate(request.Username, request.Password);
-
+            
             if (user != null)
             {
-                var token = GenerateJwtToken(user);
-                return Ok(new { Token = token });
+                //var token = GenerateJwtToken(user);
+                return Ok(user.Id);
             }
             else
             {
                 return Unauthorized("Credenciales inválidas");
             }
         }
-
+        
         private string GenerateJwtToken(User user)
         {
             var securityKey = new SymmetricSecurityKey (Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));

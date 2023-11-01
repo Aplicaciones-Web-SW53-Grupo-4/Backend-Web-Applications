@@ -2,7 +2,7 @@
 
 namespace _1.API.Response;
  
- public class ProfileResponse
+ public class ProfileOwnerResponse
  {
      public int Id { get; set; }
      public string Name { get; set; }

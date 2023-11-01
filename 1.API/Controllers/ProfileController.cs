@@ -30,14 +30,22 @@ namespace _1.API.Controllers
         public IActionResult Get(int id)
         {
             User user = _tuserData.GetById(id);
-
+                
             if (user == null)
             {
                 return NotFound(); 
             }
-            ProfileResponse profileResponse = _mapper.Map<ProfileResponse>(user);
-
-            return Ok(profileResponse); 
+            if(user.UserType== UserType.Arrendatario)
+            {
+                //TODO : Cambiar el nombre de la clase
+                ProfileResponseOwner profileResponseOwner = _mapper.Map<ProfileResponseOwner>(user);
+                return Ok(profileResponseOwner);
+            }
+            else
+            {
+                ProfileResponseOwner profileResponseOwner = _mapper.Map<ProfileResponseOwner>(user);
+                return Ok(profileResponseOwner);
+            }
             
         }
 
