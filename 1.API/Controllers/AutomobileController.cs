@@ -30,36 +30,29 @@ namespace _1.API.Controllers
             this._mapper = mapper;
             this._userData = userData;
         }
-        // GET: api/Automobile
+        // GET: api/search-car/getAll
         [HttpGet("search-car/getAll")]
         public Task<List<Automobile>> Get()
         {
             return automobileData.GetAllAsync();
         }
-
+        
         // // GET: api/Automobile/userid/automovileid
         // [HttpGet("userid/automovileid")]
-        // public Automobile Get(int id)
+        // public async Task<IActionResult> Get(int id, int userid)
         // {
-        //     return automobileData.GetById(id);
+        //     var result = await automobileData.GetByUserAutomobile(id, userid);
+        //
+        //     if (result != null)
+        //     {
+        //         return Ok(result); // Devuelve un resultado 200 OK
+        //     }
+        //
+        //     return NotFound(); // Devuelve un resultado 404 Not Found u otro resultado apropiado si los datos no se encuentran
         // }
         
-        // GET: api/Automobile/userid/automovileid
-        [HttpGet("userid/automovileid")]
-        public async Task<IActionResult> Get(int id, int userid)
-        {
-            var result = await automobileData.GetByUserAutomobile(id, userid);
-    
-            if (result != null)
-            {
-                return Ok(result); // Devuelve un resultado 200 OK
-            }
-    
-            return NotFound(); // Devuelve un resultado 404 Not Found u otro resultado apropiado si los datos no se encuentran
-        }
-        
          
-        // GET: api/Automobile/search
+        // GET: api/Automobile/search-car/getfilter
         [HttpGet(  "search-car/getfilter")]
         public IActionResult Get(string Brand,string Model)
         {
@@ -74,7 +67,7 @@ namespace _1.API.Controllers
         }
 
         
-        // POST: api/Automobile
+        // POST: api/Automobile/register
         [HttpPost("register")]
         public IActionResult Post([FromBody] AutomobileCreateRequest value)
         {

@@ -13,6 +13,7 @@ public class RequestRentDomain:IRequestRentDomain
     }
     public bool CreateRequestRent(RequestRent requestRent)
     {
+       
         return  _requestRentData.CreateRequestRent(requestRent);
     }
     

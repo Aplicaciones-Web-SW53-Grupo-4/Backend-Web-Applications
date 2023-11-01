@@ -26,6 +26,7 @@ namespace _1.API.Controllers
             _mapper = mapper;
         }
         
+        // GET: api/profile/id
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)
         {
@@ -49,7 +50,7 @@ namespace _1.API.Controllers
             
         }
 
-
+        // PUT: api/profile/id
         [HttpPut("{id}")]
         public bool Put(int id, [FromBody] ProfileUpdateRequest request)
         {

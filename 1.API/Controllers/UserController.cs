@@ -28,18 +28,9 @@ namespace _1.API.Controllers
             _mapper = mapper;
             _configuration = configuration;
         }
-        // GET: api/Tutorial
-        // [HttpGet]
-        // public async Task<List<UserResponse>> GetAsync()
-        // {
-        //     var tUsers= await _tuserData.GetAllAsync();
-        //      
-        //     var response = _mapper.Map<List<User>, List<UserResponse>>(tUsers);
-        //
-        //     return response;
-        //}
+       
         
-        
+        // POST: api/user/register
         [HttpPost("register")]
         
         public IActionResult Register([FromBody] UserRegisterRequest request)
@@ -48,9 +39,6 @@ namespace _1.API.Controllers
             if (ModelState.IsValid)
             {
                 var user = _mapper.Map<UserRegisterRequest, User>(request);
-
-                //user.UserType = UserType.Normal; // Configura el tipo de usuario
-
                 if (_tUserDomain.Create(user))
                 {
                     // Registro exitoso, devuelve una respuesta 201 Created con la ubicación del nuevo usuario
@@ -71,7 +59,9 @@ namespace _1.API.Controllers
                 return BadRequest(new { errors });
             }
         }
-        // Acción para iniciar sesión y generar un token JWT
+        
+        
+        // POST: api/user/login
         [HttpPost("login")]
         public IActionResult Login([FromBody] UserLoginRequest request)
         {
