@@ -34,6 +34,7 @@ namespace _1.API.Controllers
         /// Retrieves all request rents by owner ID.
         /// </summary>
         [HttpGet("owner/{id}")]
+        [Produces("application/json")]
         public ICollection<RequestRentOwnerResponse> GetAllRequestRentByIdForOwner(int id)
         {
             List<RequestRentOwnerResponse> requestRentOwnerResponses = _mapper.Map<List<RequestRentOwnerResponse>>(_tRequestsDomain.GetAllRequestRentByIdForOwner(id).Result);
@@ -45,6 +46,7 @@ namespace _1.API.Controllers
         /// Retrieves all request rents by tenant ID.
         /// </summary>
         [HttpGet("tenant/{id}")]
+        [Produces("application/json")]
         public List<RequestRent> GetAllRequestRentByIdForTenant(int id)
         {
             List<RequestRent> requestRentOwnerResponses = _tRequestsDomain.GetAllRequestRentByIdForTenant(id).Result;
@@ -55,6 +57,8 @@ namespace _1.API.Controllers
         /// <summary>
         /// Creates a new request rent.
         /// </summary>
+        /// <response code="201">Return the newly created  Rent</response>
+        /// <response code="400">If the Automobile null</response>
         [HttpPost]
         public bool Post([FromBody] RentRequest value)
         {
