@@ -7,7 +7,7 @@ namespace _1.API.Response;
      public int Id { get; set; }
      public string Name { get; set; }
      public string Lastname { get; set; }
-     public string Email { get; set; }
+     public string Username { get; set; }
      public UserType UserType{ get; set; }
      public string Phone { get; set; }
      public int QuantityVehiclesRented { get; set; }
