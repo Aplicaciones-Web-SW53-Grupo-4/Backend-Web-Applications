@@ -1,6 +1,4 @@
-﻿ 
-
-using _3.Data.Model;
+﻿using _3.Data.Model;
 
 namespace _2.Domain;
 
