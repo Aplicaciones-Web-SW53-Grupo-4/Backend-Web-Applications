@@ -13,6 +13,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace _1.API.Controllers
 {
+    /// <summary>
+    /// Controller for managing automobile data.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AutomobileController : ControllerBase
@@ -22,7 +25,7 @@ namespace _1.API.Controllers
         private IUserData _userData;
         private IMapper _mapper;
 
-        public AutomobileController(IAutomobileData automobileData, IAutomobileDomain automobileDomain, IMapper mapper,IUserData userData)
+        public AutomobileController(IAutomobileData automobileData, IAutomobileDomain automobileDomain, IMapper mapper, IUserData userData)
         {
             _automobileData = automobileData;
             _automobileDomain = automobileDomain;
@@ -31,6 +34,9 @@ namespace _1.API.Controllers
         }
         
         // GET: api/search-car/getAll
+        /// <summary>
+        /// Retrieves all automobiles.
+        /// </summary>
         [HttpGet("search-car/getAll")]
         public Task<List<Automobile>> Get()
         {
@@ -38,33 +44,48 @@ namespace _1.API.Controllers
         }
         
         // GET: api/Automobile/search-car/getfilter
-        [HttpGet(  "search-car/getfilter")]
-        public IActionResult Get(string Brand,string Model)
+        /// <summary>
+        /// Retrieves automobiles based on search filters.
+        /// </summary>
+        [HttpGet("search-car/getfilter")]
+        public IActionResult Get(string Brand, string Model)
         {
-            Task<List<Automobile>> automobile = _automobileData.GetBySearch(Brand,Model);
+            // Check if there are any automobiles matching the provided search filters
+            Task<List<Automobile>> automobile = _automobileData.GetBySearch(Brand, Model);
             if (automobile == null)
             {
                 return NotFound(); 
             }
-            Task<List<SearchAutomovilFilterResponse>> searchAutomovilFilterResponse = _mapper.Map< Task<List<Automobile>> , Task<List<SearchAutomovilFilterResponse>>>(automobile);
+            // Map the search results to the response model
+            Task<List<SearchAutomovilFilterResponse>> searchAutomovilFilterResponse = _mapper.Map<Task<List<Automobile>>, Task<List<SearchAutomovilFilterResponse>>>(automobile);
             return Ok(searchAutomovilFilterResponse);
         }
 
         
         // POST: api/Automobile/register
+        /// <summary>
+        /// Registers a new automobile.
+        /// </summary>
         [HttpPost("register")]
         public IActionResult Post([FromBody] AutomobileCreateRequest value)
         {
+            // Obtain the user data associated with the request
             var usuario = _userData.GetById(value.UserId);
-            var automobile = _mapper.Map<AutomobileCreateRequest,Automobile>(value);
+            // Map the request data to the Automobile model
+            var automobile = _mapper.Map<AutomobileCreateRequest, Automobile>(value);
             automobile.IsAvailable = true;
+            // Create the new automobile and return the result
             return Ok(_automobileDomain.Create(automobile, value.UserId));
         }
         
         // DELETE: api/Automobile/5
+        /// <summary>
+        /// Deletes an automobile by ID.
+        /// </summary>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            // Delete the automobile with the specified ID
             return Ok(_automobileData.Delete(id));
         }
     }
