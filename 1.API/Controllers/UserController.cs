@@ -41,21 +41,17 @@ namespace _1.API.Controllers
                 var user = _mapper.Map<UserRegisterRequest, User>(request);
                 if (_tUserDomain.Create(user))
                 {
-                    // Registro exitoso, devuelve una respuesta 201 Created con la ubicación del nuevo usuario
                     return Ok("El usuario se registró correctamente.");
                 }
                 else
                 {
-                    // El usuario ya existe o hubo un error en el registro, devuelve una respuesta 400 Bad Request
                     return BadRequest("No se pudo registrar el usuario.");
                 }
             }
             else
             {
-                // Datos de registro no válidos, devuelve una respuesta 400 Bad Request con detalles de validación
                 var errors = ModelState.Values.SelectMany(v => v.Errors)
                     .Select(e => e.ErrorMessage).ToList();
-            
                 return BadRequest(new { errors });
             }
         }
@@ -69,7 +65,6 @@ namespace _1.API.Controllers
             
             if (user != null)
             {
-                //var token = GenerateJwtToken(user);
                 return Ok(user.Id);
             }
             else
