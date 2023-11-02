@@ -34,8 +34,7 @@ public class AutomobileCreateRequest
     
     [Required]
     public string TimeRent { get; set; }
-
-    //public byte[] Image { get; set; }
+    
     
     [Required]
     public int UserId { get; set; }
