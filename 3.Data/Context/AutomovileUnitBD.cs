@@ -23,7 +23,7 @@ public class AutomovileUnitBD : DbContext
         if (!optionsBuilder.IsConfigured)
         {
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
-            optionsBuilder.UseMySql("Server=sql10.freemysqlhosting.net,3306;Uid=sql10658651;Pwd=KDq4fMhYws;Database=sql10658651;", serverVersion);
+            optionsBuilder.UseMySql("Server=sql3.freemysqlhosting.net,3306;Uid=sql3658786;Pwd=nFNgSaFgGj;Database=sql3658786;", serverVersion);
         }
     }
 
