@@ -78,7 +78,7 @@ namespace _1.API.Controllers
             {
                 // Generate and return a JWT token
                 var jwtToken = GenerateJwtToken(user);
-                return Ok(jwtToken);
+                return Ok(user.Id);
             }
             else
             {
