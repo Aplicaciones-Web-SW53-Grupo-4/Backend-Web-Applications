@@ -15,13 +15,15 @@ namespace _1.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
    
-    public class UserController :ControllerBase
+    public class UserController : ControllerBase
     {
         private IUserData _tuserData;
         private IUserDomain _tUserDomain;
         private IMapper _mapper;
         private IConfiguration _configuration;
-        public UserController(IUserData userData,IUserDomain userDomain,IMapper mapper,IConfiguration configuration)
+
+        // Constructor to inject necessary services and dependencies
+        public UserController(IUserData userData, IUserDomain userDomain, IMapper mapper, IConfiguration configuration)
         {
             _tuserData = userData;
             _tUserDomain = userDomain;
@@ -29,35 +31,44 @@ namespace _1.API.Controllers
             _configuration = configuration;
         }
        
-        
         // POST: api/user/register
+        /// <summary>
+        /// Registers a new user.
+        /// </summary>
         [HttpPost("register")]
-        
         public IActionResult Register([FromBody] UserRegisterRequest request)
         {
-            Console.WriteLine(request);
+            Console.WriteLine(request); // Log the incoming request
+            
             if (ModelState.IsValid)
             {
                 var user = _mapper.Map<UserRegisterRequest, User>(request);
+                
                 if (_tUserDomain.Create(user))
                 {
-                    return Ok("El usuario se registró correctamente.");
+                    return Ok("User registered successfully.");
                 }
                 else
                 {
-                    return BadRequest("No se pudo registrar el usuario.");
+                    return BadRequest("Failed to register the user.");
                 }
             }
             else
             {
-                var errors = ModelState.Values.SelectMany(v => v.Errors)
-                    .Select(e => e.ErrorMessage).ToList();
+                // Handle validation errors
+                var errors = ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .ToList();
+                
                 return BadRequest(new { errors });
             }
         }
         
-        
         // POST: api/user/login
+        /// <summary>
+        /// Authenticates a user.
+        /// </summary>
         [HttpPost("login")]
         public IActionResult Login([FromBody] UserLoginRequest request)
         {
@@ -65,23 +76,28 @@ namespace _1.API.Controllers
             
             if (user != null)
             {
-                return Ok(user.Id);
+                // Generate and return a JWT token
+                var jwtToken = GenerateJwtToken(user);
+                return Ok(jwtToken);
             }
             else
             {
-                return Unauthorized("Credenciales inválidas");
+                return Unauthorized("Invalid credentials");
             }
         }
         
+        /// <summary>
+        /// Generates a JWT token for the authenticated user.
+        /// </summary>
         private string GenerateJwtToken(User user)
         {
-            var securityKey = new SymmetricSecurityKey (Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
                 new Claim(ClaimTypes.Name, user.username),
-                // Puedes agregar más claims según tus necesidades
+                // You can add more claims as needed
             };
 
             var token = new JwtSecurityToken(
@@ -94,8 +110,5 @@ namespace _1.API.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
-
-    
     }
 }

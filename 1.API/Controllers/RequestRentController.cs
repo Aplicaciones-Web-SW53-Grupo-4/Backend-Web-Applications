@@ -20,19 +20,30 @@ namespace _1.API.Controllers
         private IRequestRentData _tRequestsData;
         private IRequestRentDomain _tRequestsDomain;
         private IMapper _mapper;
-        public RequestRentController(IRequestRentData tRequestsData,IRequestRentDomain tRequestsDomain,IMapper mapper)
+
+        // Constructor injection of necessary services and dependencies
+        public RequestRentController(IRequestRentData tRequestsData, IRequestRentDomain tRequestsDomain, IMapper mapper)
         {
             _tRequestsData = tRequestsData;
             _tRequestsDomain = tRequestsDomain;
             _mapper = mapper;
         }
 
+        // GET: api/RequestRent/owner/id
+        /// <summary>
+        /// Retrieves all request rents by owner ID.
+        /// </summary>
         [HttpGet("owner/{id}")]
         public ICollection<RequestRentOwnerResponse> GetAllRequestRentByIdForOwner(int id)
         {
             List<RequestRentOwnerResponse> requestRentOwnerResponses = _mapper.Map<List<RequestRentOwnerResponse>>(_tRequestsDomain.GetAllRequestRentByIdForOwner(id).Result);
             return requestRentOwnerResponses;
         }
+
+        // GET: api/RequestRent/tenant/id
+        /// <summary>
+        /// Retrieves all request rents by tenant ID.
+        /// </summary>
         [HttpGet("tenant/{id}")]
         public List<RequestRent> GetAllRequestRentByIdForTenant(int id)
         {
@@ -41,6 +52,9 @@ namespace _1.API.Controllers
         }
 
         // POST: api/RequestRent
+        /// <summary>
+        /// Creates a new request rent.
+        /// </summary>
         [HttpPost]
         public bool Post([FromBody] RentRequest value)
         {
@@ -49,6 +63,9 @@ namespace _1.API.Controllers
         }
 
         // PUT: api/RequestRent/5
+        /// <summary>
+        /// Updates an existing request rent by ID.
+        /// </summary>
         [HttpPut("{id}")]
         public bool Put(int id, [FromBody] RequestRent value)
         {

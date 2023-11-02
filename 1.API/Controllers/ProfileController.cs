@@ -19,7 +19,9 @@ namespace _1.API.Controllers
         private IUserData _tuserData;
         private IUserDomain _tUserDomain;
         private IMapper _mapper;
-        public ProfileController(IUserData userData,IUserDomain userDomain,IMapper mapper)
+
+        // Constructor injection of necessary services and dependencies
+        public ProfileController(IUserData userData, IUserDomain userDomain, IMapper mapper)
         {
             _tuserData = userData;
             _tUserDomain = userDomain;
@@ -27,16 +29,22 @@ namespace _1.API.Controllers
         }
         
         // GET: api/profile/id
+        /// <summary>
+        /// Retrieves a user profile by ID.
+        /// </summary>
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)
         {
+            // Retrieve user data based on the provided ID
             User user = _tuserData.GetById(id);
                 
+            // Check if the user exists
             if (user == null)
             {
                 return NotFound(); 
             }
-            if(user.UserType== UserType.Arrendatario)
+            // Map the user to a specific profile response based on the user type
+            if(user.UserType == UserType.Arrendatario)
             {
                 ProfileResponseOwner profileResponseOwner = _mapper.Map<ProfileResponseOwner>(user);
                 return Ok(profileResponseOwner);
@@ -46,16 +54,20 @@ namespace _1.API.Controllers
                 ProfileResponseOwner profileResponseOwner = _mapper.Map<ProfileResponseOwner>(user);
                 return Ok(profileResponseOwner);
             }
-            
         }
 
         // PUT: api/profile/id
+        /// <summary>
+        /// Updates a user profile by ID.
+        /// </summary>
         [HttpPut("{id}")]
         public bool Put(int id, [FromBody] ProfileUpdateRequest request)
         {
+            // Map the update request data to the User model
             var users = _mapper.Map<ProfileUpdateRequest, User>(request);
            
-            return _tUserDomain.Update(users,id);
+            // Update the user profile with the new data
+            return _tUserDomain.Update(users, id);
         }
         
     }
