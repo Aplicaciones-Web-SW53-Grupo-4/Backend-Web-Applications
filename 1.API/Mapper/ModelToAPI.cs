@@ -9,9 +9,17 @@ public class ModelToAPI : Profile
 {
     public ModelToAPI()
     {
-        CreateMap<User, UserRequest>();
         CreateMap<User, UserRegisterRequest>();
         CreateMap<User, UserLoginRequest>();
-        CreateMap<User, UserResponse>();
+        CreateMap<User, ProfileResponseOwner>();
+        CreateMap<Automobile, SearchAutomovilFilterResponse>();
+        CreateMap<Automobile, AutomobileCreateRequest>();
+        CreateMap<User,ProfileUpdateRequest>();
+        CreateMap< Task<List<Automobile>> , Task< List < SearchAutomovilFilterResponse >> >();
+        CreateMap<RequestRent, RentRequest>();
+        CreateMap<Automobile,AutomobileResponse>();
+        CreateMap< User,OwnerResponse>();
+        CreateMap<RequestRent,RequestRentOwnerResponse>();
+
     }
 }
