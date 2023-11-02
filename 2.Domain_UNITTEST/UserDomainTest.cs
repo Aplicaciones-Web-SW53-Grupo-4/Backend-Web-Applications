@@ -16,7 +16,6 @@ public class UserDomainTest
             Name="Erick ",
             Lastname = "Ruiz",
             phone ="984344322",
-
         };
 
         var userdatamock = Substitute.For<IUserData>();

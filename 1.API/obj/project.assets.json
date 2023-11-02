@@ -11508,19 +11508,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\": {}
+    "C:\\Users\\dizzy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\1.API\\1.API.csproj",
+      "projectUniqueName": "C:\\Users\\dizzy\\Music\\Web-Application-Backend-AutomovileUnit\\1.API\\1.API.csproj",
       "projectName": "1.API",
-      "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\1.API\\1.API.csproj",
-      "packagesPath": "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\1.API\\obj\\",
+      "projectPath": "C:\\Users\\dizzy\\Music\\Web-Application-Backend-AutomovileUnit\\1.API\\1.API.csproj",
+      "packagesPath": "C:\\Users\\dizzy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dizzy\\Music\\Web-Application-Backend-AutomovileUnit\\1.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\RUIZ TORRES\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dizzy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11534,11 +11534,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj": {
-              "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj"
+            "C:\\Users\\dizzy\\Music\\Web-Application-Backend-AutomovileUnit\\2.Domain\\2.Domain.csproj": {
+              "projectPath": "C:\\Users\\dizzy\\Music\\Web-Application-Backend-AutomovileUnit\\2.Domain\\2.Domain.csproj"
             },
-            "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {
-              "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj"
+            "C:\\Users\\dizzy\\Music\\Web-Application-Backend-AutomovileUnit\\3.Data\\3.Data.csproj": {
+              "projectPath": "C:\\Users\\dizzy\\Music\\Web-Application-Backend-AutomovileUnit\\3.Data\\3.Data.csproj"
             }
           }
         }
@@ -11619,24 +11619,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.12, 7.0.12]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[7.0.12, 7.0.12]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.12, 7.0.12]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.12, 7.0.12]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -11645,7 +11627,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
