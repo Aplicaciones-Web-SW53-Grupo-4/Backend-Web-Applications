@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Web-Application-Backend-AutomovileUnitt\\2.Domain\\2.Domain.csproj": {}
+    "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Web-Application-Backend-AutomovileUnitt\\2.Domain\\2.Domain.csproj": {
+    "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Web-Application-Backend-AutomovileUnitt\\2.Domain\\2.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj",
         "projectName": "2.Domain",
-        "projectPath": "D:\\Web-Application-Backend-AutomovileUnitt\\2.Domain\\2.Domain.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Web-Application-Backend-AutomovileUnitt\\2.Domain\\obj\\",
+        "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\2.Domain.csproj",
+        "packagesPath": "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\2.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\RUIZ TORRES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Web-Application-Backend-AutomovileUnitt\\3.Data\\3.Data.csproj": {
-                "projectPath": "D:\\Web-Application-Backend-AutomovileUnitt\\3.Data\\3.Data.csproj"
+              "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {
+                "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj"
               }
             }
           }
@@ -86,30 +82,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Web-Application-Backend-AutomovileUnitt\\3.Data\\3.Data.csproj": {
+    "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Web-Application-Backend-AutomovileUnitt\\3.Data\\3.Data.csproj",
+        "projectUniqueName": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj",
         "projectName": "3.Data",
-        "projectPath": "D:\\Web-Application-Backend-AutomovileUnitt\\3.Data\\3.Data.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Web-Application-Backend-AutomovileUnitt\\3.Data\\obj\\",
+        "projectPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\3.Data.csproj",
+        "packagesPath": "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\3.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\RUIZ TORRES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -189,12 +195,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.12, 7.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -38,6 +38,7 @@ namespace _1.API.Controllers
         /// Retrieves all automobiles.
         /// </summary>
         [HttpGet("search-car/getAll")]
+        [Produces("application/json")]
         public Task<List<Automobile>> Get()
         {
             return _automobileData.GetAllAsync();
@@ -48,6 +49,7 @@ namespace _1.API.Controllers
         /// Retrieves automobiles based on search filters.
         /// </summary>
         [HttpGet("search-car/getfilter")]
+        [Produces("application/json")]
         public IActionResult Get(string Brand, string Model)
         {
             // Check if there are any automobiles matching the provided search filters
@@ -66,6 +68,9 @@ namespace _1.API.Controllers
         /// <summary>
         /// Registers a new automobile.
         /// </summary>
+        /// <response code="201">Return the newly created  Automobile</response>
+        /// <response code="400">If the Automobile null</response>
+        
         [HttpPost("register")]
         public IActionResult Post([FromBody] AutomobileCreateRequest value)
         {

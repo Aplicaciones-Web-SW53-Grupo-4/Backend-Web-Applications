@@ -33,6 +33,7 @@ namespace _1.API.Controllers
         /// Retrieves a user profile by ID.
         /// </summary>
         [HttpGet("{id}", Name = "Get")]
+        [Produces("application/json")]
         public IActionResult Get(int id)
         {
             // Retrieve user data based on the provided ID
