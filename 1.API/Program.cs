@@ -99,7 +99,10 @@ using (var context = scope.ServiceProvider.GetService<AutomovileUnitBD>())
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Aumovile-Unit API v1");
+    });
 }
 
 app.UseHttpsRedirection();
