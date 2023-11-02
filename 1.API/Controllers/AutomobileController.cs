@@ -17,53 +17,36 @@ namespace _1.API.Controllers
     [ApiController]
     public class AutomobileController : ControllerBase
     {
-        private IAutomobileData automobileData;
-        private IAutomobileDomain automobileDomain;
+        private IAutomobileData _automobileData;
+        private IAutomobileDomain _automobileDomain;
         private IUserData _userData;
         private IMapper _mapper;
 
-        public AutomobileController(IAutomobileData automobileData, IAutomobileDomain automobileDomain, IMapper mapper
-        , IUserData userData)
+        public AutomobileController(IAutomobileData automobileData, IAutomobileDomain automobileDomain, IMapper mapper,IUserData userData)
         {
-            this.automobileData = automobileData;
-            this.automobileDomain = automobileDomain;
-            this._mapper = mapper;
-            this._userData = userData;
+            _automobileData = automobileData;
+            _automobileDomain = automobileDomain;
+            _mapper = mapper;
+            _userData = userData;
         }
         
         // GET: api/search-car/getAll
         [HttpGet("search-car/getAll")]
         public Task<List<Automobile>> Get()
         {
-            return automobileData.GetAllAsync();
+            return _automobileData.GetAllAsync();
         }
         
-        // // GET: api/Automobile/userid/automovileid
-        // [HttpGet("userid/automovileid")]
-        // public async Task<IActionResult> Get(int id, int userid)
-        // {
-        //     var result = await automobileData.GetByUserAutomobile(id, userid);
-        //
-        //     if (result != null)
-        //     {
-        //         return Ok(result); // Devuelve un resultado 200 OK
-        //     }
-        //
-        //     return NotFound(); // Devuelve un resultado 404 Not Found u otro resultado apropiado si los datos no se encuentran
-        // }
-        
-         
         // GET: api/Automobile/search-car/getfilter
         [HttpGet(  "search-car/getfilter")]
         public IActionResult Get(string Brand,string Model)
         {
-            Task<List<Automobile>> automobile = automobileData.GetBySearch(Brand,Model);
+            Task<List<Automobile>> automobile = _automobileData.GetBySearch(Brand,Model);
             if (automobile == null)
             {
                 return NotFound(); 
             }
-            Task<List<SearchAutomovilFilterResponse>> searchAutomovilFilterResponse =
-                _mapper.Map< Task<List<Automobile>> , Task<List<SearchAutomovilFilterResponse>>>(automobile);
+            Task<List<SearchAutomovilFilterResponse>> searchAutomovilFilterResponse = _mapper.Map< Task<List<Automobile>> , Task<List<SearchAutomovilFilterResponse>>>(automobile);
             return Ok(searchAutomovilFilterResponse);
         }
 
@@ -75,14 +58,14 @@ namespace _1.API.Controllers
             var usuario = _userData.GetById(value.UserId);
             var automobile = _mapper.Map<AutomobileCreateRequest,Automobile>(value);
             automobile.IsAvailable = true;
-            return Ok(automobileDomain.Create(automobile, value.UserId));
+            return Ok(_automobileDomain.Create(automobile, value.UserId));
         }
         
         // DELETE: api/Automobile/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            return Ok(automobileData.Delete(id));
+            return Ok(_automobileData.Delete(id));
         }
     }
 }

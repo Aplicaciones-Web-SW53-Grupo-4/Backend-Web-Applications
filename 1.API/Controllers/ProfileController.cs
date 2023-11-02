@@ -38,7 +38,6 @@ namespace _1.API.Controllers
             }
             if(user.UserType== UserType.Arrendatario)
             {
-                //TODO : Cambiar el nombre de la clase
                 ProfileResponseOwner profileResponseOwner = _mapper.Map<ProfileResponseOwner>(user);
                 return Ok(profileResponseOwner);
             }

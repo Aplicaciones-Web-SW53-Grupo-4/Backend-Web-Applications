@@ -37,7 +37,6 @@ namespace _1.API.Controllers
         public List<RequestRent> GetAllRequestRentByIdForTenant(int id)
         {
             List<RequestRent> requestRentOwnerResponses = _tRequestsDomain.GetAllRequestRentByIdForTenant(id).Result;
-            //TODO mapear
             return requestRentOwnerResponses;
         }
 
