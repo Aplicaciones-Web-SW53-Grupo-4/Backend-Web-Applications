@@ -32,6 +32,8 @@ namespace _1.API.Controllers
         /// <summary>
         /// Retrieves a user profile by ID.
         /// </summary>
+        /// <response code="200">Returns the found profile</response>
+        /// <response code="404">Profile is null</response>
         [HttpGet("{id}", Name = "Get")]
         [Produces("application/json")]
         public IActionResult Get(int id)
@@ -61,6 +63,7 @@ namespace _1.API.Controllers
         /// <summary>
         /// Updates a user profile by ID.
         /// </summary>
+        /// <response code="200">Profile update</response>
         [HttpPut("{id}")]
         public bool Put(int id, [FromBody] ProfileUpdateRequest request)
         {

@@ -33,6 +33,7 @@ namespace _1.API.Controllers
         /// <summary>
         /// Retrieves all request rents by owner ID.
         /// </summary>
+        /// <response code="200">Returns the list of all the owner's requests</response>
         [HttpGet("owner/{id}")]
         [Produces("application/json")]
         public ICollection<RequestRentOwnerResponse> GetAllRequestRentByIdForOwner(int id)
@@ -45,6 +46,7 @@ namespace _1.API.Controllers
         /// <summary>
         /// Retrieves all request rents by tenant ID.
         /// </summary>
+        /// <response code="200">Returns the list of all the tenant's requests</response>
         [HttpGet("tenant/{id}")]
         [Produces("application/json")]
         public List<RequestRent> GetAllRequestRentByIdForTenant(int id)
@@ -70,6 +72,7 @@ namespace _1.API.Controllers
         /// <summary>
         /// Updates an existing request rent by ID.
         /// </summary>
+        /// <response code="200">Request updated</response>
         [HttpPut("{id}")]
         public bool Put(int id, [FromBody] RequestRent value)
         {

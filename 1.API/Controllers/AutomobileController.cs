@@ -37,6 +37,8 @@ namespace _1.API.Controllers
         /// <summary>
         /// Retrieves all automobiles.
         /// </summary>
+        /// <response code="200">Return list of Automobile found</response>
+        /// <response code="404">No automobile found</response>
         [HttpGet("search-car/getAll")]
         [Produces("application/json")]
         public Task<List<Automobile>> Get()
@@ -48,6 +50,8 @@ namespace _1.API.Controllers
         /// <summary>
         /// Retrieves automobiles based on search filters.
         /// </summary>
+        /// <response code="200">Return of Automobile found</response>
+        /// <response code="404">No automobile found</response>
         [HttpGet("search-car/getfilter")]
         [Produces("application/json")]
         public IActionResult Get(string Brand, string Model)
@@ -68,7 +72,7 @@ namespace _1.API.Controllers
         /// <summary>
         /// Registers a new automobile.
         /// </summary>
-        /// <response code="201">Return the newly created  Automobile</response>
+        /// <response code="200">Return the newly created  Automobile</response>
         /// <response code="400">If the Automobile null</response>
         
         [HttpPost("register")]
@@ -87,6 +91,7 @@ namespace _1.API.Controllers
         /// <summary>
         /// Deletes an automobile by ID.
         /// </summary>
+        /// <response code="200">Automobile deleted</response>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
