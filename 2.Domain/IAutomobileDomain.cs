@@ -4,10 +4,10 @@ namespace _2.Domain;
 
 public interface IAutomobileDomain
 {
-    bool Create(Automobile automobile, int userId);
-    bool Delete(int id);
+    bool Create(Automobile automobile, string userId);
+    bool Delete(string id);
     Task<List<Automobile>> GetAll();
-    Task<Automobile> GetById(int id);
+    Task<Automobile> GetById(string id);
     Task<List<Automobile>> GetBySearch(string Brand, string Model);
     Task<Automobile> SearchByFilter(Automobile filter);
 }

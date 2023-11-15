@@ -12,7 +12,7 @@ public class AutomobileMsqlData : IAutomobileData
     {
         this._automobileUnitBd = atomobileUnitBd;
     }
-    public Automobile GetById(long id)
+    public Automobile GetById(string id)
     {
         return this._automobileUnitBd.TAutomobiles.Where(p=>p.Id == id).First();
     }
@@ -22,7 +22,7 @@ public class AutomobileMsqlData : IAutomobileData
         return this._automobileUnitBd.TAutomobiles.Where(p=>  p.Brand==brand&&p.Model==model).ToListAsync();
     }
 
-    public async Task<UserAutomovileResult> GetByUserAutomobile(int id, int automovileid)
+    public async Task<UserAutomovileResult> GetByUserAutomobile(string id, string automovileid)
     {
         var user = await this._automobileUnitBd.TUsers.Where(p => p.Id == id).FirstOrDefaultAsync();
         var automobile = await this._automobileUnitBd.TAutomobiles.Where(p => p.Id == automovileid).FirstOrDefaultAsync();
@@ -59,7 +59,7 @@ public class AutomobileMsqlData : IAutomobileData
         }
     }
 
-    public bool Update(Automobile automobile, long id)
+    public bool Update(Automobile automobile, string id)
     {
         try
         {
@@ -79,7 +79,7 @@ public class AutomobileMsqlData : IAutomobileData
             return false;
         }
     }
-    public bool Delete(long id)
+    public bool Delete(string id)
     {
         try
         {

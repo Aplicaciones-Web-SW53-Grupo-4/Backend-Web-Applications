@@ -17,17 +17,17 @@ public class RequestRentDomain:IRequestRentDomain
         return  _requestRentData.CreateRequestRent(requestRent);
     }
     
-    public Task<List<RequestRent>> GetAllRequestRentByIdForOwner(int id)
+    public Task<List<RequestRent>> GetAllRequestRentByIdForOwner(string id)
     {
         return _requestRentData.GetAllRequestRentByIdForOwner(id);
     }
 
-    public Task<List<RequestRent>> GetAllRequestRentByIdForTenant(int id)
+    public Task<List<RequestRent>> GetAllRequestRentByIdForTenant(string id)
     {
         return _requestRentData.GetAllRequestRentByIdForTenant(id);
     }
 
-    public bool UpdateRequestRent(RequestRent requestRent, int id)
+    public bool UpdateRequestRent(RequestRent requestRent, string id)
     {
         return _requestRentData.UpdateRequestRent(requestRent, id);
     }

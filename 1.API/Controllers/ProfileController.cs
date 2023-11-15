@@ -34,7 +34,7 @@ namespace _1.API.Controllers
         /// </summary>
         [HttpGet("{id}", Name = "Get")]
         [Produces("application/json")]
-        public IActionResult Get(int id)
+        public IActionResult Get(string id)
         {
             // Retrieve user data based on the provided ID
             User user = _tuserData.GetById(id);
@@ -47,13 +47,13 @@ namespace _1.API.Controllers
             // Map the user to a specific profile response based on the user type
             if(user.UserType == UserType.Arrendatario)
             {
-                ProfileResponseOwner profileResponseOwner = _mapper.Map<ProfileResponseOwner>(user);
-                return Ok(profileResponseOwner);
+                ProfileOwnerResponse profileOwnerResponse = _mapper.Map< ProfileOwnerResponse>(user);
+                return Ok(profileOwnerResponse);
             }
             else
             {
-                ProfileResponseOwner profileResponseOwner = _mapper.Map<ProfileResponseOwner>(user);
-                return Ok(profileResponseOwner);
+                ProfileOwnerResponse profileOwnerResponse= _mapper.Map< ProfileOwnerResponse>(user);
+                return Ok(profileOwnerResponse);
             }
         }
 
@@ -62,7 +62,7 @@ namespace _1.API.Controllers
         /// Updates a user profile by ID.
         /// </summary>
         [HttpPut("{id}")]
-        public bool Put(int id, [FromBody] ProfileUpdateRequest request)
+        public bool Put(string id, [FromBody] ProfileUpdateRequest request)
         {
             // Map the update request data to the User model
             var users = _mapper.Map<ProfileUpdateRequest, User>(request);

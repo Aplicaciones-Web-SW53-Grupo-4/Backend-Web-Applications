@@ -15,7 +15,7 @@ public class RequestRentControllerTest
         public void GetAllRequestRentByIdForOwner_ReturnsCollectionOfRequestRentOwnerResponse()
         {
             // Arrange
-            int ownerId = 1;
+            string ownerId = "1";
             var mockRequestRentData = new Mock<IRequestRentData>();
             var mockRequestRentDomain = new Mock<IRequestRentDomain>();
             var mockMapper = new Mock<IMapper>();
@@ -27,7 +27,6 @@ public class RequestRentControllerTest
                 new RequestRent { /* Initialize properties as needed */ },
                 new RequestRent { /* Initialize properties as needed */ },
             };
-
             mockRequestRentDomain.Setup(repo => repo.GetAllRequestRentByIdForOwner(ownerId)).ReturnsAsync(requestRentList);
             mockMapper.Setup(m => m.Map<List<RequestRentOwnerResponse>>(It.IsAny<List<RequestRent>>()))
                       .Returns((List<RequestRent> source) => source.Select(item => new RequestRentOwnerResponse()).ToList());
@@ -43,7 +42,7 @@ public class RequestRentControllerTest
         public void GetAllRequestRentByIdForTenant_ReturnsListOfRequestRent()
         {
             // Arrange
-            int tenantId = 1;
+            string tenantId = "1";
             var mockRequestRentData = new Mock<IRequestRentData>();
             var mockRequestRentDomain = new Mock<IRequestRentDomain>();
             var mockMapper = new Mock<IMapper>();
@@ -94,7 +93,7 @@ public class RequestRentControllerTest
         public void Put_ReturnsTrue()
         {
             // Arrange
-            int requestId = 1;
+            string requestId = "1";
             var mockRequestRentData = new Mock<IRequestRentData>();
             var mockRequestRentDomain = new Mock<IRequestRentDomain>();
             var mockMapper = new Mock<IMapper>();

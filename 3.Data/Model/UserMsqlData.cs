@@ -11,7 +11,7 @@ public class UserMsqlData :IUserData
     {
         _automovileUnitBd = automovileUnitBd;
     }
-    public User GetById(int id)
+    public User GetById(string id)
     {
         User user = _automovileUnitBd.TUsers.Where(t => t.Id == id && t.IsActive).FirstOrDefault();
         _automovileUnitBd.Entry(user).Collection(u=>u.Automobiles).Load();
@@ -40,7 +40,7 @@ public class UserMsqlData :IUserData
             return false;
         }
     }
-    public bool Update(User tuser, int id)
+    public bool Update(User tuser, string id)
     {    try
         {
             var userToBeUpdated = _automovileUnitBd.TUsers.Where(t => t.Id == id).First();
@@ -65,7 +65,7 @@ public class UserMsqlData :IUserData
     }
     
     
-    public bool Delete(int id)
+    public bool Delete(string id)
     {  try
         {
             var userToBeUpdated = _automovileUnitBd.TUsers.Where(t => t.Id == id).First();

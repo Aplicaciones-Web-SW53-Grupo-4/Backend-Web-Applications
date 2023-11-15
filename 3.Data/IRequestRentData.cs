@@ -5,7 +5,7 @@ namespace _3.Data;
 public interface IRequestRentData
 {
     public bool CreateRequestRent(RequestRent requestRent);
-    public Task<List<RequestRent>> GetAllRequestRentByIdForOwner(int id);
-    public Task<List<RequestRent>> GetAllRequestRentByIdForTenant(int id);
-    public bool UpdateRequestRent(RequestRent requestRent, int id);
+    public Task<List<RequestRent>> GetAllRequestRentByIdForOwner(string id);
+    public Task<List<RequestRent>> GetAllRequestRentByIdForTenant(string id);
+    public bool UpdateRequestRent(RequestRent requestRent, string id);
 }

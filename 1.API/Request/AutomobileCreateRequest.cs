@@ -1,10 +1,13 @@
 ﻿using _3.Data.Model;
 using Microsoft.Build.Framework;
+using DisplayAttribute = System.ComponentModel.DataAnnotations.DisplayAttribute;
 
 namespace _1.API.Request;
 
 public class AutomobileCreateRequest
 {
+
+
     [Required]
     public string Brand { get; set; }
     
@@ -24,6 +27,9 @@ public class AutomobileCreateRequest
     public AutomovilTransmissionType TransmissionType { get; set; }
     
     [Required]
+    
+    [Display(Name= "Class Type")] 
+    public string ClassTypeString => ClassType.ToString();
     public AutomovilClassType ClassType { get; set; }
     
     [Required]
@@ -35,7 +41,12 @@ public class AutomobileCreateRequest
     [Required]
     public string TimeRent { get; set; }
     
+    [Display(Name = "status Request")] 
+    public string statusRequestString => statusRequest.ToString();
+    public AutomobileRentStatus statusRequest { get; set; }
+    
+    public string imageurl { get; set; }
     
     [Required]
-    public int UserId { get; set; }
+    public string UserId { get; set; }
 }

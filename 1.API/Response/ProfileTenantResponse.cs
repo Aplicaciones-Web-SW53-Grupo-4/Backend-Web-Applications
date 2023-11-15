@@ -4,7 +4,7 @@ namespace _1.API.Response;
  
  public class ProfileResponseOwner
  {
-     public int Id { get; set; }
+     public string Id { get; set; }
      public string Name { get; set; }
      public string Lastname { get; set; }
      public string Username { get; set; }

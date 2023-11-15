@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Q3pajmZTnnX/sNkW+deJ97ehyrdBvy3Vawxxr7zXKnz4bOyTrSwAFNj6u3u8S5v8y41rHmW2JRmojk7UGAqIvQ==",
+  "dgSpecHash": "kVPL/91uAzx0Mh34R2ipsTCnXPlsR5pYGheJ27gJ7QqvkIr0pvSc/AcMNWYTtTamLOUwIbA/f8snVGmE4Ndthw==",
   "success": true,
   "projectFilePath": "C:\\Users\\RUIZ TORRES\\RiderProjects\\PROYECTO BACKEND\\Backend-Web-Applications\\1.API\\1.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\firebasestorage.net\\1.0.3\\firebasestorage.net.1.0.3.nupkg.sha512",
     "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\RUIZ TORRES\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

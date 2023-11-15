@@ -23,7 +23,7 @@ public class AutomovileUnitBD : DbContext
         if (!optionsBuilder.IsConfigured)
         {
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
-            optionsBuilder.UseMySql("Server=sql3.freemysqlhosting.net,3306;Uid=sql3658786;Pwd=nFNgSaFgGj;Database=sql3658786;", serverVersion);
+            optionsBuilder.UseMySql("Server=127.0.0.1,3306;Uid=root;Pwd=root;Database=AutomovileUnit;", serverVersion);
         }
     }
 
@@ -33,6 +33,7 @@ public class AutomovileUnitBD : DbContext
 
         builder.Entity<User>().ToTable("User");
         builder.Entity<User>().HasKey(p => p.Id);
+        builder.Entity<User>().Property(p => p.Id).ValueGeneratedOnAdd();
         builder.Entity<User>().Property(c => c.Name).IsRequired().HasMaxLength(50);
         builder.Entity<User>().Property(c => c.Lastname).IsRequired().HasMaxLength(50);
         builder.Entity<User>().Property(c => c.DateCreated).HasDefaultValue(DateTime.Now);
@@ -51,6 +52,7 @@ public class AutomovileUnitBD : DbContext
         {
             entity.ToTable("Aumontovil");
             entity.HasKey(p => p.Id);
+            entity.Property(p => p.Id).ValueGeneratedOnAdd();
             entity.Property(c => c.Brand).IsRequired().HasMaxLength(50);
         });
         
@@ -58,6 +60,7 @@ public class AutomovileUnitBD : DbContext
         {
             entity.ToTable("RequestRent");
             entity.HasKey(p => p.Id);
+            entity.Property(p => p.Id).ValueGeneratedOnAdd();
             entity.Property(c => c.StatusRequest).IsRequired();
             entity.Property(c => c.DateCreated).HasDefaultValue(DateTime.Now);
             entity.Property(c => c.DateUpdate).HasDefaultValue(DateTime.Now);
