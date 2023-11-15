@@ -1,4 +1,5 @@
-﻿using _3.Data.Model;
+﻿using System.ComponentModel.DataAnnotations;
+using _3.Data.Model;
 
 namespace _1.API.Response;
 
@@ -13,6 +14,8 @@ public class AutomobileResponse
     public int QuantitySeat { get; set; }
     
     public AutomovilTransmissionType TransmissionType { get; set; }
+    [Display(Name= "Class Type")] 
+    public string ClassTypeString => ClassType.ToString();
     public AutomovilClassType ClassType { get; set; }
     public bool IsAvailable { get; set; }
     

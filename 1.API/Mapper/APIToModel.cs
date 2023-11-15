@@ -12,7 +12,7 @@ public class APIToModel :Profile
         CreateMap<UserRegisterRequest, User>();
         CreateMap<UserLoginRequest, User>();
         CreateMap<AutomobileCreateRequest, Automobile>();
-        CreateMap<ProfileResponseOwner,User>();
+        CreateMap<ProfileOwnerResponse,User>();
         CreateMap<SearchAutomovilFilterResponse,Automobile>();
         CreateMap<ProfileUpdateRequest,User>();
         CreateMap< Task<List<SearchAutomovilFilterResponse>>,Task<List<Automobile>> >();

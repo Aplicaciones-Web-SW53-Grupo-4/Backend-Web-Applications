@@ -12,7 +12,7 @@ public class AutomobileDomainTest
         // Arrange
         var mockAutomobileData = new Mock<IAutomobileData>();
         var mockUserData = new Mock<IUserData>();
-        var userId = 1;
+        var userId = "1";
         var automobile = new Automobile();
 
         var user = new User

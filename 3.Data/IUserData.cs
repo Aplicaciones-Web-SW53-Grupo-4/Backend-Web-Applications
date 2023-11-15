@@ -4,12 +4,12 @@ namespace _3.Data.Model;
 
 public interface IUserData
 {
-    User GetById(int id);
+    User GetById(string id);
     User GetByName(string name);
     Task<List<User>> GetAllAsync();
 
     bool Create(User user);
-    bool Update(User user,int id);
-    bool Delete(int id);
+    bool Update(User user,string id);
+    bool Delete(string id);
     User ValidateCredentials(string email, string password);
 }

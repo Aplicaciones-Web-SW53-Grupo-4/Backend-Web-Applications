@@ -25,7 +25,7 @@ public class UserDomain :IUserDomain
         }
     }
 
-    public bool Update(User tuser, int id)
+    public bool Update(User tuser, string id)
     {       
         
         // if (tutorial.Title ==  "") return false;// No es negocio
@@ -40,7 +40,7 @@ public class UserDomain :IUserDomain
             return false;
         }
     }
-    public bool Delete(int id)
+    public bool Delete(string id)
     {
         //Validar negocio
         return _userData.Delete(id);

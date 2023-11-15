@@ -14,7 +14,7 @@ public class ProfileControllerTest
         public void Get_ReturnsOkResult_WhenUserExists()
         {
             // Arrange
-            int userId = 1;
+            string userId = "1";
             var mockUserData = new Mock<IUserData>();
             var mockUserDomain = new Mock<IUserDomain>();
             var mockMapper = new Mock<IMapper>();
@@ -44,7 +44,7 @@ public class ProfileControllerTest
         public void Get_ReturnsNotFound_WhenUserDoesNotExist()
         {
             // Arrange
-            int userId = 1;
+            string userId = "1";
             var mockUserData = new Mock<IUserData>();
             var mockUserDomain = new Mock<IUserDomain>();
             var mockMapper = new Mock<IMapper>();

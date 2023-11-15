@@ -83,7 +83,7 @@ public class UserControllerTest
 
             var user = new User
             {
-                Id = 1,
+                Id = "1",
                 // Set other properties as needed
             };
 

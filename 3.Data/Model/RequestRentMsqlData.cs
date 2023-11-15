@@ -17,16 +17,16 @@ public class RequestRentMsqlData: IRequestRentData
         return _automovileUnitBd.SaveChanges() >= 0;
     }
 
-    public Task<List<RequestRent>> GetAllRequestRentByIdForOwner(int id)
+    public Task<List<RequestRent>> GetAllRequestRentByIdForOwner(string id)
     {
         return _automovileUnitBd.TRentRequests.Where(p => p.Automobile.UserId == id).ToListAsync();
     }
-    public Task<List<RequestRent>> GetAllRequestRentByIdForTenant(int id)
+    public Task<List<RequestRent>> GetAllRequestRentByIdForTenant(string id)
     {
         return _automovileUnitBd.TRentRequests.Where(p => p.TenantId== id).ToListAsync();
     }
 
-    public bool UpdateRequestRent(RequestRent requestRent, int id)
+    public bool UpdateRequestRent(RequestRent requestRent, string id)
     {
         try
         {

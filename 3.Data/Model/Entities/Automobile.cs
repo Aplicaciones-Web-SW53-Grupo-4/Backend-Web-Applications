@@ -1,4 +1,6 @@
-﻿namespace _3.Data.Model;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace _3.Data.Model;
 
 public class Automobile:ModelBase
 {
@@ -11,13 +13,19 @@ public class Automobile:ModelBase
     public int QuantitySeat{ get; set; }
     
     public AutomovilTransmissionType TransmissionType { get; set; }
+    
+    [Display(Name = "Class Type")] 
+    public string ClassTypeString => ClassType.ToString();
     public AutomovilClassType ClassType { get; set; }
     public bool IsAvailable { get; set; }
     
     public string Place { get; set; }
     public string TimeRent { get; set; }
-    //public byte[] Image { get; set; }
-    
-    public int UserId { get; set; }
+
+    [Display(Name = "status Request")] 
+    public string statusRequestString => statusRequest.ToString();
+    public AutomobileRentStatus statusRequest { get; set; }
+    public string imageurl { get; set; }
+    public string UserId { get; set; }
     private User User { get; set; }
 }

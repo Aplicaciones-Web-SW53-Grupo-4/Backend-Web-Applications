@@ -13,19 +13,29 @@ public class AutomobileDomain: IAutomobileDomain
         _userData = userData;
     }
     
-    public bool Create(Automobile automobile, int userId)
+    public bool Create(Automobile automobile,string userId)
     {
         var user = _userData.GetById(userId);
-        user.Automobiles.Add(automobile);
-        _userData.Update(user, userId);
-        return true;
+        if (user!=null)
+        {
+            automobile.statusRequest = AutomobileRentStatus.Waiting;
+            return _automobileData.Create(automobile);
+            
+        }
+        else
+        {
+            return false;
+        }
+        // user.Automobiles.Add(automobile);
+        // _userData.Update(user, userId);
+        // return true;
     }
-    public bool Update(Automobile automobile, int id)
+    public bool Update(Automobile automobile, string id)
     {
         throw new NotImplementedException();
     }
 
-    public bool Delete(int id)
+    public bool Delete(string id)
     {
         throw new NotImplementedException();
     }
@@ -35,11 +45,11 @@ public class AutomobileDomain: IAutomobileDomain
         return _automobileData.GetAllAsync();
     }
 
-    public async Task<UserAutomovileResult> GetByUserAutomobile(int id, int automovileid)
+    public async Task<UserAutomovileResult> GetByUserAutomobile(string id, string automovileid)
     {
         throw new NotImplementedException();
     }
-    public Task<Automobile> GetById(int id)
+    public Task<Automobile> GetById(string id)
     {
         throw new NotImplementedException();
     }

@@ -1,10 +1,10 @@
 ﻿using _3.Data.Model;
-
+using System.ComponentModel.DataAnnotations;
 namespace _1.API.Response;
 
 public class SearchAutomovilFilterResponse
 {
-    public int Id { get; set; }
+    public string Id { get; set; }
     public string Brand { get; set; }
     public double Price { get; set; }
     public string Model { get; set; }
@@ -12,8 +12,11 @@ public class SearchAutomovilFilterResponse
     public string Description { get; set; }
     public int Year { get; set; }
     public AutomovilTransmissionType TransmissionType { get; set; }
+    
+    [Display(Name= "Class Type")] 
+    public string ClassTypeString => ClassType.ToString();
     public AutomovilClassType ClassType { get; set; }
     public bool IsAvailable { get; set; }
-    public int UserId { get; set; }
+    public string UserId { get; set; }
 
 }

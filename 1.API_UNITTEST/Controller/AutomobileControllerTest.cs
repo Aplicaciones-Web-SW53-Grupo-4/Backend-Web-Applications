@@ -93,7 +93,7 @@ public class AutomobileControllerTest
 
         var automobileCreateRequest = new AutomobileCreateRequest
         {
-            UserId = 1,
+            UserId = "1",
         };
 
         var user = new User
@@ -127,7 +127,7 @@ public class AutomobileControllerTest
         var controller = new AutomobileController(mockAutomobileData.Object, mockAutomobileDomain.Object,
             mockMapper.Object, mockUserData.Object);
 
-        var automobileId = 1;
+        var automobileId = "1";
 
         mockAutomobileData.Setup(repo => repo.Delete(automobileId)).Returns(true);
 

@@ -88,7 +88,7 @@ namespace _1.API.Controllers
         /// Deletes an automobile by ID.
         /// </summary>
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
             // Delete the automobile with the specified ID
             return Ok(_automobileData.Delete(id));
