@@ -50,19 +50,16 @@ namespace _1.API.Controllers
         /// </summary>
         [HttpGet("search-car/getfilter")]
         [Produces("application/json")]
-        public IActionResult Get(string Brand, string Model)
+        public  IActionResult Get([FromQuery] FilterAutomobileRequest filter)
         {
-            // Check if there are any automobiles matching the provided search filters
-            Task<List<Automobile>> automobile = _automobileData.GetBySearch(Brand, Model);
-            if (automobile == null)
-            {
-                return NotFound(); 
-            }
-            // Map the search results to the response model
-            Task<List<SearchAutomovilFilterResponse>> searchAutomovilFilterResponse = _mapper.Map<Task<List<Automobile>>, Task<List<SearchAutomovilFilterResponse>>>(automobile);
-            return Ok(searchAutomovilFilterResponse);
+            // Map the request data to the Automobile model
+            var automobile = _mapper.Map<FilterAutomobileRequest, Automobile>(filter);
+            // Search for automobiles matching the provided filters
+            var automobileResult =  _automobileDomain.SearchByFilter(automobile).Result;
+            // Return the result
+            var response = _mapper.Map<List<Automobile>, List<AutomobileResponse>>(automobileResult);
+            return Ok(response);
         }
-
         
         // POST: api/Automobile/register
         /// <summary>

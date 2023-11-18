@@ -59,8 +59,8 @@ public class AutomobileDomain: IAutomobileDomain
         throw new NotImplementedException();
     }
 
-    public Task<Automobile> SearchByFilter(Automobile filter)
+    public Task<List<Automobile>> SearchByFilter(Automobile filterAutomobile)
     {
-        throw new NotImplementedException();
+        return _automobileData.SearchCarByFilter(filterAutomobile);
     }
 }

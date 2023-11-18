@@ -72,7 +72,7 @@ namespace _1.API.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] UserLoginRequest request)
         {
-            var user = _tUserDomain.Authenticate(request.Username, request.Password);
+            var user = _tUserDomain.Authenticate(request.Username, request.Password, request.UserType);
             
             if (user != null)
             {

@@ -11,5 +11,5 @@ public interface IUserData
     bool Create(User user);
     bool Update(User user,string id);
     bool Delete(string id);
-    User ValidateCredentials(string email, string password);
+    User ValidateCredentials(string email, string password, UserType userType);
 }

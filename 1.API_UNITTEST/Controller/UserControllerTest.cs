@@ -87,7 +87,7 @@ public class UserControllerTest
                 // Set other properties as needed
             };
 
-            mockUserDomain.Setup(repo => repo.Authenticate(userLoginRequest.Username, userLoginRequest.Password)).Returns(user);
+            mockUserDomain.Setup(repo => repo.Authenticate(userLoginRequest.Username, userLoginRequest.Password, userLoginRequest.UserType)).Returns(user);
             mockConfiguration.Setup(c => c["Jwt:Key"]).Returns("YourSecretKey");
             mockConfiguration.Setup(c => c["Jwt:Issuer"]).Returns("YourIssuer");
             mockConfiguration.Setup(c => c["Jwt:Audience"]).Returns("YourAudience");
@@ -119,7 +119,7 @@ public class UserControllerTest
                 Password = "password",
             };
 
-            mockUserDomain.Setup(repo => repo.Authenticate(userLoginRequest.Username, userLoginRequest.Password)).Returns((User)null);
+            mockUserDomain.Setup(repo => repo.Authenticate(userLoginRequest.Username, userLoginRequest.Password,userLoginRequest.UserType)).Returns((User)null);
 
             // Act
             var result = controller.Login(userLoginRequest);

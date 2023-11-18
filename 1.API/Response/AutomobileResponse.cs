@@ -18,7 +18,7 @@ public class AutomobileResponse
     public string ClassTypeString => ClassType.ToString();
     public AutomovilClassType ClassType { get; set; }
     public bool IsAvailable { get; set; }
-    
+    public string imageurl { get; set; }
     public string Place { get; set; }
     public string TimeRent { get; set; }
 }

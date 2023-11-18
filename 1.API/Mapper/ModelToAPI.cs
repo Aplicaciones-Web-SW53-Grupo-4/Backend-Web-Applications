@@ -15,7 +15,7 @@ public class ModelToAPI : Profile
         CreateMap<Automobile, SearchAutomovilFilterResponse>();
         CreateMap<Automobile, AutomobileCreateRequest>();
         CreateMap<User,ProfileUpdateRequest>();
-        CreateMap< Task<List<Automobile>> , Task< List < SearchAutomovilFilterResponse >> >();
+        CreateMap< Automobile , SearchAutomovilFilterResponse>();
         CreateMap<RequestRent, RentRequest>();
         CreateMap<Automobile,AutomobileResponse>();
         CreateMap< User,OwnerResponse>();

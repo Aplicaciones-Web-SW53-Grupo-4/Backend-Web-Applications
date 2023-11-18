@@ -45,10 +45,10 @@ public class UserDomain :IUserDomain
         //Validar negocio
         return _userData.Delete(id);
     }
-    public User Authenticate(string email, string password)
+    public User Authenticate(string email, string password, UserType userType)
     {
         // Implementa la autenticación de usuario aquí
         // Utiliza _userData.ValidateCredentials para validar las credenciales
-        return _userData.ValidateCredentials(email, password);
+        return _userData.ValidateCredentials(email, password, userType);
     }
 }

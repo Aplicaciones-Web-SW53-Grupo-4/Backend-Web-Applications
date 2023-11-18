@@ -20,5 +20,6 @@ public class APIToModel :Profile
         CreateMap<AutomobileResponse, Automobile>();
         CreateMap<OwnerResponse, User>();
         CreateMap<RequestRentOwnerResponse, RequestRent>();
+        CreateMap<FilterAutomobileRequest, Automobile>();
     }
 }

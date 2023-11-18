@@ -9,5 +9,5 @@ public interface IAutomobileDomain
     Task<List<Automobile>> GetAll();
     Task<Automobile> GetById(string id);
     Task<List<Automobile>> GetBySearch(string Brand, string Model);
-    Task<Automobile> SearchByFilter(Automobile filter);
+    Task<List<Automobile>> SearchByFilter(Automobile filter);
 }

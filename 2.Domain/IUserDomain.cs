@@ -7,5 +7,5 @@ public interface IUserDomain
     bool Create(User user);
     bool Update(User user,string id);
     bool Delete(string id);
-    User Authenticate(string email, string password);
+    User Authenticate(string email, string password, UserType userType);
 }
