@@ -9,6 +9,8 @@ public interface IAutomobileData
     public bool Create(Automobile automobile);
     public bool Update(Automobile automobile, string id);
     public bool Delete(string id);
+
+    public Task<List<Automobile>> GetCarsByOwnerID(string ownerId);
     
     public Task<List<Automobile>> SearchCarByFilter(Automobile automobile);
 }

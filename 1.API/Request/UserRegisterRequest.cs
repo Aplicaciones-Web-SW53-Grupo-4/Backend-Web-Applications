@@ -7,7 +7,7 @@ public class UserRegisterRequest
 {
     
     [Required (ErrorMessage = "El nombre de usuario es requerido")]
-    [MaxLength(20)]
+    [MaxLength(60)]
     public string username { get; set; }
     
     [Required (ErrorMessage = "La contraseña es requerida")]

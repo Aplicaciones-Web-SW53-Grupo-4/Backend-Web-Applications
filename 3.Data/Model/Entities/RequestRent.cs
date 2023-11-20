@@ -9,4 +9,12 @@ public class RequestRent:ModelBase
     
     public string TenantId { get; set; }
     public User Tenant { get; set; }
+    
+    public string OwnerId { get; set; }
+    public User Owner { get; set; }
+    
+    public DateTime StartRent { get; set; }
+    public DateTime EndRent { get; set; }
+    
+    public long TimeCollect { get; set; }
 }

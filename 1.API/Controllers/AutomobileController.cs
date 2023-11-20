@@ -61,6 +61,17 @@ namespace _1.API.Controllers
             return Ok(response);
         }
         
+        [HttpGet("get-cars/{ownerID}")]
+        [Produces("application/json")]
+        public IActionResult GetCarsByOwner(string ownerID)
+        {
+            // Search for automobiles matching the provided filters
+            var automobileResult =  _automobileDomain.GetCarsByOwnerID(ownerID).Result;
+            // Return the result
+            var response = _mapper.Map<List<Automobile>, List<AutomobileResponse>>(automobileResult);
+            return Ok(response);
+        }
+        
         // POST: api/Automobile/register
         /// <summary>
         /// Registers a new automobile.
@@ -90,5 +101,8 @@ namespace _1.API.Controllers
             // Delete the automobile with the specified ID
             return Ok(_automobileData.Delete(id));
         }
+        
+        
+        
     }
 }

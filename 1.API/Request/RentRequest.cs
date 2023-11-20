@@ -4,8 +4,11 @@ namespace _1.API.Request;
 
 public class RentRequest
 {
-    public string Id { get; set; }
     public AutomobileRentStatus StatusRequest { get; set; }
-    public int TenantId { get; set; }
-    public int AutomobileId { get; set; }
+    public DateTime StartRent { get; set; }
+    public DateTime EndRent { get; set; }
+    public long TimeCollect { get; set; }
+    public string TenantId { get; set; }
+    public string AutomobileId { get; set; }
+    public string OwnerId { get; set; }
 }

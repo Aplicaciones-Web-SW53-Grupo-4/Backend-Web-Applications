@@ -35,9 +35,10 @@ namespace _1.API.Controllers
         /// </summary>
         [HttpGet("owner/{id}")]
         [Produces("application/json")]
-        public ICollection<RequestRentOwnerResponse> GetAllRequestRentByIdForOwner(string id)
+        public List<RequestRentOwnerResponse> GetAllRequestRentByIdForOwner(string id)
         {
-            List<RequestRentOwnerResponse> requestRentOwnerResponses = _mapper.Map<List<RequestRentOwnerResponse>>(_tRequestsDomain.GetAllRequestRentByIdForOwner(id).Result);
+            List<RequestRentOwnerResponse> requestRentOwnerResponses =
+                _mapper.Map<List<RequestRentOwnerResponse>>(_tRequestsDomain.GetAllRequestRentByIdForOwner(id).Result);
             return requestRentOwnerResponses;
         }
 
@@ -47,13 +48,16 @@ namespace _1.API.Controllers
         /// </summary>
         [HttpGet("tenant/{id}")]
         [Produces("application/json")]
-        public List<RequestRent> GetAllRequestRentByIdForTenant(string id)
+        public List<RequestRentTenantResponse> GetAllRequestRentByIdForTenant(string id)
         {
-            List<RequestRent> requestRentOwnerResponses = _tRequestsDomain.GetAllRequestRentByIdForTenant(id).Result;
-            return requestRentOwnerResponses;
+            List<RequestRent> requestsTenant = _tRequestsDomain.GetAllRequestRentByIdForTenant(id).Result;
+            List<RequestRentTenantResponse> requestRentTenantResponses =
+                _mapper.Map<List<RequestRentTenantResponse>>(requestsTenant);
+            return requestRentTenantResponses;
         }
+    
 
-        // POST: api/RequestRent
+    // POST: api/RequestRent
         /// <summary>
         /// Creates a new request rent.
         /// </summary>
@@ -62,7 +66,7 @@ namespace _1.API.Controllers
         [HttpPost]
         public bool Post([FromBody] RentRequest value)
         {
-            RequestRent requestRent = _mapper.Map<RequestRent>(value);
+            RequestRent requestRent = _mapper.Map<RentRequest,RequestRent>(value);
             return _tRequestsDomain.CreateRequestRent(requestRent);
         }
 
@@ -71,9 +75,10 @@ namespace _1.API.Controllers
         /// Updates an existing request rent by ID.
         /// </summary>
         [HttpPut("{id}")]
-        public bool Put(string id, [FromBody] RequestRent value)
+        public bool Put(string id, [FromBody] UpdateRequestRentRequest value)
         {
-            return _tRequestsDomain.UpdateRequestRent(value, id);
+            RequestRent requestRent = _mapper.Map<UpdateRequestRentRequest,RequestRent>(value);
+            return _tRequestsDomain.UpdateRequestRent(requestRent, id);
         }
 
     }

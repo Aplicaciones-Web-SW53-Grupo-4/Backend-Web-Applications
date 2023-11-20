@@ -21,4 +21,5 @@ public class AutomobileResponse
     public string imageurl { get; set; }
     public string Place { get; set; }
     public string TimeRent { get; set; }
+    public string statusRequestString { get; set; }
 }

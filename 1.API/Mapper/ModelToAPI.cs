@@ -20,6 +20,8 @@ public class ModelToAPI : Profile
         CreateMap<Automobile,AutomobileResponse>();
         CreateMap< User,OwnerResponse>();
         CreateMap<RequestRent,RequestRentOwnerResponse>();
-
+        CreateMap<RequestRent,RequestRentTenantResponse>();
+        CreateMap<User,TenantResponse>();
+        CreateMap<RequestRent,UpdateRequestRentRequest>();
     }
 }

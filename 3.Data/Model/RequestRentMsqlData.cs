@@ -13,17 +13,25 @@ public class RequestRentMsqlData: IRequestRentData
     }
     public bool CreateRequestRent(RequestRent requestRent)
     {
+        requestRent.DateCreated = DateTime.Now;
         _automovileUnitBd.TRentRequests.Add(requestRent);
         return _automovileUnitBd.SaveChanges() >= 0;
     }
 
     public Task<List<RequestRent>> GetAllRequestRentByIdForOwner(string id)
     {
-        return _automovileUnitBd.TRentRequests.Where(p => p.Automobile.UserId == id).ToListAsync();
+        return _automovileUnitBd.TRentRequests.Where(p => p.Automobile.UserId == id).
+            Include(p => p.Owner).
+            Include(p => p.Tenant).
+            Include(p => p.Automobile).
+            ToListAsync();
     }
     public Task<List<RequestRent>> GetAllRequestRentByIdForTenant(string id)
     {
-        return _automovileUnitBd.TRentRequests.Where(p => p.TenantId== id).ToListAsync();
+        return _automovileUnitBd.TRentRequests.Where(p => p.TenantId == id).Include(p => p.Automobile)
+            .Include(p => p.Tenant).
+            Include(p => p.Owner).
+            ToListAsync();
     }
 
     public bool UpdateRequestRent(RequestRent requestRent, string id)
@@ -34,15 +42,15 @@ public class RequestRentMsqlData: IRequestRentData
             if (requestRent1 != null)
             {
                 requestRent1.StatusRequest = requestRent.StatusRequest;
-                _automovileUnitBd.TRentRequests.Update(requestRent1);
+                requestRent1.DateUpdate = DateTime.Now;
                 _automovileUnitBd.SaveChanges();
                 return true;
             }
-
             return false;
         }
         catch (Exception e)
         {
+            Console.WriteLine(e);
             return false;
         }
       
