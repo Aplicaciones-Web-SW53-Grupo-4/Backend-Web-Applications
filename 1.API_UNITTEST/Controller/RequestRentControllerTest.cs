@@ -106,9 +106,13 @@ public class RequestRentControllerTest
             };
 
             mockRequestRentDomain.Setup(repo => repo.UpdateRequestRent(requestRent, requestId)).Returns(true);
-
+    
+            var updateRequestRentRequest = new UpdateRequestRentRequest
+            {
+                // Initialize properties as needed
+            };
             // Act
-            var result = controller.Put(requestId, requestRent);
+            var result = controller.Put(requestId, updateRequestRentRequest);
 
             // Assert
             Assert.True(result);

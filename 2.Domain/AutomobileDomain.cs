@@ -42,6 +42,12 @@ public class AutomobileDomain: IAutomobileDomain
         return _automobileData.GetAllAsync();
     }
 
+    public Task<List<Automobile>> GetCarsByOwnerID(string ownerId)
+    {
+        return _automobileData.GetCarsByOwnerID(ownerId);
+    }
+
+
     public async Task<UserAutomovileResult> GetByUserAutomobile(string id, string automovileid)
     {
         throw new NotImplementedException();

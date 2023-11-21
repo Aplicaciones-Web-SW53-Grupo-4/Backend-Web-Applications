@@ -2,10 +2,19 @@
 
 public class RequestRent:ModelBase
 {
-    public string automovile_id{ get; set; }
+    public AutomobileRentStatus StatusRequest { get; set; }
+    
+    public string AutomobileId { get; set; }
     public Automobile Automobile { get; set; }
-    public string tenant_id { get; set; }
-    public string owner_id { get; set; }
+    
+    public string TenantId { get; set; }
     public User Tenant { get; set; }
+    
+    public string OwnerId { get; set; }
     public User Owner { get; set; }
+    
+    public DateTime StartRent { get; set; }
+    public DateTime EndRent { get; set; }
+    
+    public long TimeCollect { get; set; }
 }

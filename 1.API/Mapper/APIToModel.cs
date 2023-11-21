@@ -21,5 +21,7 @@ public class APIToModel :Profile
         CreateMap<OwnerResponse, User>();
         CreateMap<RequestRentOwnerResponse, RequestRent>();
         CreateMap<FilterAutomobileRequest, Automobile>();
+        CreateMap<TenantResponse, User>();
+        CreateMap<UpdateRequestRentRequest, RequestRent>();
     }
 }

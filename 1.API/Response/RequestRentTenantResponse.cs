@@ -8,6 +8,5 @@ public class RequestRentTenantResponse
     public AutomobileRentStatus StatusRequest { get; set; }
     public AutomobileResponse Automobile { get; set; }
     public OwnerResponse Owner { get; set; }
-    public DateTime CreatedAt { get; set; }
-    
+    public DateTime DateCreated { get; set; }
 }

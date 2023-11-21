@@ -115,4 +115,10 @@ public class AutomobileMsqlData : IAutomobileData
             .ToListAsync();
 
     }
+
+    public Task<List<Automobile>> GetCarsByOwnerID(string ownerId)
+    {
+        return this._automobileUnitBd.TAutomobiles.Where(p => p.UserId == ownerId).ToListAsync();
+    }
+
 }
