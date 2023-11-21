@@ -48,7 +48,9 @@ public class AutomobileMsqlData : IAutomobileData
 
     public Task<List<Automobile>> GetAllAsync()
     {
-        return this._automobileUnitBd.TAutomobiles.ToListAsync();
+        return this._automobileUnitBd.TAutomobiles.Where(
+            p => p.statusRequest == AutomobileRentStatus.Pending ||
+                 p.statusRequest == AutomobileRentStatus.Rejected).ToListAsync();
     }
 
     public bool Create(Automobile automobile)
@@ -106,14 +108,16 @@ public class AutomobileMsqlData : IAutomobileData
 
     public Task<List<Automobile>> SearchCarByFilter(Automobile automobile)
     {
-
+        
         return _automobileUnitBd.TAutomobiles
             .Where(p =>
-                (automobile.Brand == null || p.Brand == automobile.Brand) &&
-                (automobile.Model == "" || p.Model == automobile.Model)&&
-                (automobile.Price == 0 || p.Price == automobile.Price))
-            .ToListAsync();
-
+                (automobile.Brand == null || p.Brand == automobile.Brand || automobile.Brand=="") &&
+                (automobile.Model==null || automobile.Model == "" || p.Model == automobile.Model)&&
+                (automobile.Price == 0 || p.Price == automobile.Price)&&
+                (automobile.ClassType == null || p.ClassType == automobile.ClassType)&&
+                (automobile.QuantitySeat == 0 || p.QuantitySeat == automobile.QuantitySeat)&&
+                (automobile.TransmissionType == null || p.TransmissionType == automobile.TransmissionType)&&
+                (automobile.TimeRent == null || automobile.TimeRent=="" ||p.TimeRent == automobile.TimeRent)).ToListAsync();
     }
 
     public Task<List<Automobile>> GetCarsByOwnerID(string ownerId)

@@ -48,12 +48,32 @@ public class RequestRentMsqlData: IRequestRentData
     {
         try
         {
-            RequestRent requestRent1 = _automovileUnitBd.TRentRequests.FirstOrDefault(p => p.Id == id);
-            if (requestRent1 != null)
+            RequestRent requestRentToUpdate = _automovileUnitBd.TRentRequests.FirstOrDefault(p => p.Id == id);
+            if (requestRentToUpdate != null)
             {
-                requestRent1.StatusRequest = requestRent.StatusRequest;
-                requestRent1.DateUpdate = DateTime.Now;
+                requestRentToUpdate.StatusRequest = requestRent.StatusRequest;
+                requestRentToUpdate.DateUpdate = DateTime.Now;
                 _automovileUnitBd.SaveChanges();
+                
+                Automobile automobile = _automovileUnitBd.TAutomobiles.FirstOrDefault(p => p.Id == requestRentToUpdate.AutomobileId);
+                
+                automobile.statusRequest = requestRentToUpdate.StatusRequest;
+                automobile.DateUpdate = DateTime.Now;
+                _automovileUnitBd.SaveChanges();
+                
+                if(requestRentToUpdate.StatusRequest == AutomobileRentStatus.Accepted)
+                {
+                    var requestRentToReject = _automovileUnitBd.TRentRequests.Where(p => 
+                        p.AutomobileId == requestRentToUpdate.AutomobileId &&
+                        p.Id != requestRentToUpdate.Id);
+                    
+                    foreach (var requestReject in requestRentToReject)
+                    {
+                        requestReject.StatusRequest = AutomobileRentStatus.Rejected;
+                        requestReject.DateUpdate = DateTime.Now;
+                        _automovileUnitBd.SaveChanges();
+                    }
+                }
                 return true;
             }
             return false;

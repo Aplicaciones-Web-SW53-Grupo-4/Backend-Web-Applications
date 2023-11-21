@@ -9,4 +9,5 @@ public class OwnerResponse
     
     public Adress Adress { get; set; }
     public string phone { get; set; }
+    public string username { get; set; }
 }

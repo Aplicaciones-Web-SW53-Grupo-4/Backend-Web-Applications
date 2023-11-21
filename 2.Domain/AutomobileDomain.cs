@@ -25,9 +25,7 @@ public class AutomobileDomain: IAutomobileDomain
         {
             return false;
         }
-        // user.Automobiles.Add(automobile);
-        // _userData.Update(user, userId);
-        // return true;
+
     }
     public bool Update(Automobile automobile, string id)
     {

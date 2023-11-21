@@ -15,4 +15,5 @@ public class RequestRentOwnerResponse
     public long TimeCollect { get; set; }
     
     public DateTime CreatedAt { get; set; }
+    
 }

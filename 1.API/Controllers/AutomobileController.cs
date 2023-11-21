@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using _1.API.Request;
 using _1.API.Response;
@@ -50,16 +51,34 @@ namespace _1.API.Controllers
         /// </summary>
         [HttpGet("search-car/getfilter")]
         [Produces("application/json")]
-        public  IActionResult Get([FromQuery] FilterAutomobileRequest filter)
+        public  IActionResult Get([FromQuery] float Price,
+            [FromQuery] string? Brand,
+            [FromQuery] string? Model,
+            [FromQuery] string? TimeRent,
+            [FromQuery] AutomovilTransmissionType? TransmissionType,
+            [FromQuery] AutomovilClassType? ClassType,
+            [FromQuery] int? QuantitySeat)
         {
             // Map the request data to the Automobile model
-            var automobile = _mapper.Map<FilterAutomobileRequest, Automobile>(filter);
+            
+            FilterAutomobileRequest filterRequest = new FilterAutomobileRequest();
+            filterRequest.Price = Price;
+            filterRequest.Brand = Brand;
+            filterRequest.Model = Model;
+            filterRequest.TimeRent =TimeRent;
+            filterRequest.TransmissionType = TransmissionType;
+            filterRequest.ClassType = ClassType;
+            filterRequest.QuantitySeat = QuantitySeat;
+            
+            
+            var automobile = _mapper.Map<FilterAutomobileRequest, Automobile>(filterRequest);
             // Search for automobiles matching the provided filters
+
             var automobileResult =  _automobileDomain.SearchByFilter(automobile).Result;
-            // Return the result
+    
             var response = _mapper.Map<List<Automobile>, List<AutomobileResponse>>(automobileResult);
             
-            return Ok(filter);
+            return Ok(response);
         }
         
         [HttpGet("get-cars/{ownerID}")]

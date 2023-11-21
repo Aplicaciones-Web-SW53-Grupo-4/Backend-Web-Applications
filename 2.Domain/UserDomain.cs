@@ -28,7 +28,6 @@ public class UserDomain :IUserDomain
     public bool Update(User tuser, string id)
     {       
         
-        // if (tutorial.Title ==  "") return false;// No es negocio
         var existinguser = _userData.GetByName(tuser.Name);
 
         if (existinguser == null)
@@ -42,13 +41,10 @@ public class UserDomain :IUserDomain
     }
     public bool Delete(string id)
     {
-        //Validar negocio
         return _userData.Delete(id);
     }
     public User Authenticate(string email, string password, UserType userType)
     {
-        // Implementa la autenticación de usuario aquí
-        // Utiliza _userData.ValidateCredentials para validar las credenciales
         return _userData.ValidateCredentials(email, password, userType);
     }
 }
