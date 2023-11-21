@@ -24,6 +24,8 @@ public class AutomobileMsqlData : IAutomobileData
     {
         return this._automobileUnitBd.TAutomobiles.Where(p => p.Brand == brand && p.Model == model).ToListAsync();
     }
+    
+    
 
     public async Task<UserAutomovileResult> GetByUserAutomobile(string id, string automovileid)
     {

@@ -4,6 +4,7 @@ using _3.Data.Model;
 namespace _1.API.Response;
 
 public class AutomobileResponse
+
 {
     public string Brand { get; set; }
   
@@ -23,4 +24,5 @@ public class AutomobileResponse
     public string TimeRent { get; set; }
     public string statusRequestString { get; set; }
     public string Id { get; set; }
+
 }
