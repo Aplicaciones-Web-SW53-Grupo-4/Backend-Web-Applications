@@ -4,6 +4,9 @@ namespace _2.Domain;
 
 public class AutomobileDomain: IAutomobileDomain
 {
+    private const int IntervalMinutes = 10; // Define el intervalo de tiempo en minutos
+    private const int MaxAutomobilesPerInterval = 5; // Define el número máximo de automóviles por intervalo
+    
     IAutomobileData _automobileData;
     IUserData _userData;
     
@@ -13,11 +16,43 @@ public class AutomobileDomain: IAutomobileDomain
         _userData = userData;
     }
     
-    public bool Create(Automobile automobile,string userId)
+    public bool Create(Automobile automobile, string userId)
+    {
+        if (!IsUserValid(userId))
+        {
+            throw new InvalidOperationException("User is not valid");
+        }
+
+        // Verificar la frecuencia de creación de automóviles
+        var user = _userData.GetById(userId);
+
+        if (user.LastAutomobileCreation != null)
+        {
+            var elapsedTime = DateTime.Now - user.LastAutomobileCreation.Value;
+
+            if (elapsedTime.TotalMinutes < IntervalMinutes && user.AutomobilesCreatedInInterval >= MaxAutomobilesPerInterval)
+            {
+                throw new InvalidOperationException($"No se permite crear más de {MaxAutomobilesPerInterval} automóviles cada {IntervalMinutes} minutos.");
+            }
+        }
+
+        automobile.statusRequest = AutomobileRentStatus.Pending;
+
+        // Actualizar la información del usuario
+        user.LastAutomobileCreation = DateTime.Now;
+        user.AutomobilesCreatedInInterval++;
+
+        _userData.Update(user, userId);
+
+        return _automobileData.Create(automobile);
+    }
+
+    private bool IsUserValid(string userId)
     {
         var user = _userData.GetById(userId);
         if (user!=null)
         {
+            var automobile = new Automobile();
             automobile.statusRequest = AutomobileRentStatus.Pending;
             return _automobileData.Create(automobile);
         }
@@ -26,6 +61,7 @@ public class AutomobileDomain: IAutomobileDomain
             return false;
         }
 
+        return user != null;
     }
     public bool Update(Automobile automobile, string id)
     {
