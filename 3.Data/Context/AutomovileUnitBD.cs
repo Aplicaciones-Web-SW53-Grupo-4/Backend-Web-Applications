@@ -50,7 +50,7 @@ public class AutomovileUnitBD : DbContext
         
         builder.Entity<Automobile>(entity =>
         {
-            entity.ToTable("Aumontovil");
+            entity.ToTable("Automovil");
             entity.HasKey(p => p.Id);
             entity.Property(p => p.Id).ValueGeneratedOnAdd();
             entity.Property(c => c.Brand).IsRequired().HasMaxLength(50);
@@ -61,9 +61,21 @@ public class AutomovileUnitBD : DbContext
             entity.ToTable("RequestRent");
             entity.HasKey(p => p.Id);
             entity.Property(p => p.Id).ValueGeneratedOnAdd();
-            entity.Property(c => c.StatusRequest).IsRequired();
             entity.Property(c => c.DateCreated).HasDefaultValue(DateTime.Now);
             entity.Property(c => c.DateUpdate).HasDefaultValue(DateTime.Now);
+        });
+        
+        builder.Entity<Notifications>(entity =>
+        {
+            entity.ToTable("Notifications");
+            entity.HasKey(p => p.Id);
+            entity.Property(p => p.Id).ValueGeneratedOnAdd();
+        });
+        builder.Entity<Request>(entity =>
+        {
+            entity.ToTable("Solicitudes");
+            entity.HasKey(p => p.Id);
+            entity.Property(p => p.Id).ValueGeneratedOnAdd();
         });
     }
 }

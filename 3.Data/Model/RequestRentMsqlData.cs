@@ -21,9 +21,11 @@ public class RequestRentMsqlData: IRequestRentData
     {
         return _automovileUnitBd.TRentRequests.Where(p => p.Automobile.UserId == id).ToListAsync();
     }
+    
+    
     public Task<List<RequestRent>> GetAllRequestRentByIdForTenant(string id)
     {
-        return _automovileUnitBd.TRentRequests.Where(p => p.TenantId== id).ToListAsync();
+        return _automovileUnitBd.TRentRequests.Where(p => p.tenant_id== id).ToListAsync();
     }
 
     public bool UpdateRequestRent(RequestRent requestRent, string id)
@@ -33,7 +35,7 @@ public class RequestRentMsqlData: IRequestRentData
             RequestRent requestRent1 = _automovileUnitBd.TRentRequests.FirstOrDefault(p => p.Id == id);
             if (requestRent1 != null)
             {
-                requestRent1.StatusRequest = requestRent.StatusRequest;
+                // requestRent1.StatusRequest = requestRent.StatusRequest;
                 _automovileUnitBd.TRentRequests.Update(requestRent1);
                 _automovileUnitBd.SaveChanges();
                 return true;

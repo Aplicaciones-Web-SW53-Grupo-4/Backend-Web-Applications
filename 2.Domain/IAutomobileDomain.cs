@@ -4,7 +4,7 @@ namespace _2.Domain;
 
 public interface IAutomobileDomain
 {
-    bool Create(Automobile automobile, string userId);
+    string Create(Automobile automobile, string userId);  //crea el auto y devuelve el id para utilizar en contrato
     bool Delete(string id);
     Task<List<Automobile>> GetAll();
     Task<Automobile> GetById(string id);
