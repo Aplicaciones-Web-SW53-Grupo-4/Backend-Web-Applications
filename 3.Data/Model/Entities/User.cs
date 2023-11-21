@@ -11,5 +11,7 @@ public class User:ModelBase
     public string phone { get; set; }
     public UserType UserType { get; set; } 
     
+    public DateTime? LastAutomobileCreation { get; set; }
+    public int AutomobilesCreatedInInterval { get; set; }
     public List<Automobile> Automobiles { get; set; }
 }

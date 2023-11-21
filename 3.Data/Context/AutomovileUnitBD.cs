@@ -38,6 +38,8 @@ public class AutomovileUnitBD : DbContext
         builder.Entity<User>().Property(c => c.Lastname).IsRequired().HasMaxLength(50);
         builder.Entity<User>().Property(c => c.DateCreated).HasDefaultValue(DateTime.Now);
         builder.Entity<User>().Property(c => c.IsActive).HasDefaultValue(true);
+        builder.Entity<User>().Property(c =>c.LastAutomobileCreation).HasDefaultValue(DateTime.Now);
+        builder.Entity<User>().Property(c =>c.AutomobilesCreatedInInterval).HasDefaultValue(0);
 
         builder.Entity<User>().Property(c => c.UserType).IsRequired();
         builder.Entity<User>().OwnsOne(p => p.Adress, location =>
