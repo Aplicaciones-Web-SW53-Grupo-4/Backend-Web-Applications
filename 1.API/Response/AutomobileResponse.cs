@@ -6,7 +6,6 @@ namespace _1.API.Response;
 public class AutomobileResponse
 
 {
-    public string Id { get; set; }
     public string Brand { get; set; }
   
     public double Price { get; set; }
@@ -23,17 +22,7 @@ public class AutomobileResponse
     public string imageurl { get; set; }
     public string Place { get; set; }
     public string TimeRent { get; set; }
-<<<<<<< HEAD
-    
-    [Display(Name = "status rent")] 
-    public string statusRequestString => statusRequest.ToString();
-    public AutomobileRentStatus statusRequest { get; set; }
-    
-    public string nameofuser { get; set; }   //nombre del dueño del vehiculo con el cual se registro
-    
-    public string phoneeofuser { get; set; }   //telefono del dueño del vehiculo con el cual se registro
-=======
     public string statusRequestString { get; set; }
     public string Id { get; set; }
->>>>>>> master
+
 }

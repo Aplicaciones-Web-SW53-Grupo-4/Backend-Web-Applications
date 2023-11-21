@@ -55,6 +55,19 @@ namespace _1.API.Controllers
                 _mapper.Map<List<RequestRentTenantResponse>>(requestsTenant);
             return requestRentTenantResponses;
         }
+        // GET: api/RequestRent/tenant/id
+        /// <summary>
+        /// Retrieves all request rents by tenant ID.
+        /// </summary>
+        [HttpGet("tenant/rent/{id}")]
+        [Produces("application/json")]
+        public List<RequestRentTenantResponse> GetAllRequestRentByIdForTenantForRent(string id)
+        {
+            List<RequestRent> requestsTenant = _tRequestsDomain.GetAllRequestRentByIdForTenantForRent(id).Result;
+            List<RequestRentTenantResponse> requestRentTenantResponses =
+                _mapper.Map<List<RequestRentTenantResponse>>(requestsTenant);
+            return requestRentTenantResponses;
+        }
     
 
     // POST: api/RequestRent
@@ -70,7 +83,6 @@ namespace _1.API.Controllers
             return _tRequestsDomain.CreateRequestRent(requestRent);
         }
 
-        
         // PUT: api/RequestRent/5
         /// <summary>
         /// Updates an existing request rent by ID.

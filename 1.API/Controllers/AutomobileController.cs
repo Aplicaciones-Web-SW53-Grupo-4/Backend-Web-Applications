@@ -41,7 +41,6 @@ namespace _1.API.Controllers
         [Produces("application/json")]
         public Task<List<Automobile>> Get()
         {
-            
             return _automobileData.GetAllAsync();
         }
         
@@ -83,34 +82,13 @@ namespace _1.API.Controllers
         [HttpPost("register")]
         public IActionResult Post([FromBody] AutomobileCreateRequest value)
         {
-            try
-            {
-                // Obtén los datos de usuario asociados a la solicitud
-                var usuario = _userData.GetById(value.UserId);
-
-                // Mapea los datos de la solicitud al modelo Automobile
-                var automobile = _mapper.Map<AutomobileCreateRequest, Automobile>(value);
-                automobile.IsAvailable = true;
-
-                // Crea el nuevo automóvil y obtén el ID
-                var createdAutomobileId = _automobileDomain.Create(automobile, value.UserId);
-
-                // Retorna el ID en la respuesta
-                return Ok(new { Id = createdAutomobileId });
-            }
-            catch (Exception ex)
-            {
-                // Maneja excepciones y retorna una respuesta apropiada
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
-            }
-            // // Obtain the user data associated with the request
-            // var usuario = _userData.GetById(value.UserId);
-            // // Map the request data to the Automobile model
-            // var automobile = _mapper.Map<AutomobileCreateRequest, Automobile>(value);
-            // automobile.IsAvailable = true;
-            // // Create the new automobile and return the result
-            // return Ok(_automobileDomain.Create(automobile, value.UserId));
-            
+            // Obtain the user data associated with the request
+            var usuario = _userData.GetById(value.UserId);
+            // Map the request data to the Automobile model
+            var automobile = _mapper.Map<AutomobileCreateRequest, Automobile>(value);
+            automobile.IsAvailable = true;
+            // Create the new automobile and return the result
+            return Ok(_automobileDomain.Create(automobile, value.UserId));
         }
         
         // DELETE: api/Automobile/5

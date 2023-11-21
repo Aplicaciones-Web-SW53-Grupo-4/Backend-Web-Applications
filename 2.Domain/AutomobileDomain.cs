@@ -13,19 +13,22 @@ public class AutomobileDomain: IAutomobileDomain
         _userData = userData;
     }
     
-    public string Create(Automobile automobile,string userId)
+    public bool Create(Automobile automobile,string userId)
     {
         var user = _userData.GetById(userId);
-        if (user != null)
+        if (user!=null)
         {
             automobile.statusRequest = AutomobileRentStatus.Waiting;
-            if (_automobileData.Create(automobile))
-            {
-                // Devuelve el ID del automóvil creado
-                return automobile.Id;
-            }
+            return _automobileData.Create(automobile);
+            
         }
-        return null; // Retorna null si no se crea el automóvil o el usuario no existe
+        else
+        {
+            return false;
+        }
+        // user.Automobiles.Add(automobile);
+        // _userData.Update(user, userId);
+        // return true;
     }
     public bool Update(Automobile automobile, string id)
     {
