@@ -6,7 +6,8 @@ namespace _2.Domain;
 public class RequestRentDomain:IRequestRentDomain
 {
     private IRequestRentData _requestRentData;
-
+    private IAutomobileData _automobileData;
+    
     public RequestRentDomain(IRequestRentData _requestRentData)
     {
         this._requestRentData = _requestRentData;
@@ -29,6 +30,7 @@ public class RequestRentDomain:IRequestRentDomain
 
     public bool UpdateRequestRent(RequestRent requestRent, string id)
     {
+        
         return _requestRentData.UpdateRequestRent(requestRent, id);
     }
 }
