@@ -22,9 +22,10 @@ public class Automobile:ModelBase
     public string Place { get; set; }
     public string TimeRent { get; set; }
 
-    [Display(Name = "status Request")] 
+    [Display(Name = "status rent")] 
     public string statusRequestString => statusRequest.ToString();
     public AutomobileRentStatus statusRequest { get; set; }
+    
     public string imageurl { get; set; }
     public string UserId { get; set; }
     private User User { get; set; }

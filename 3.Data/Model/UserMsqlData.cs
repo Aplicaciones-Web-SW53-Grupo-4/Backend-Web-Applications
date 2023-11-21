@@ -17,6 +17,7 @@ public class UserMsqlData :IUserData
         _automovileUnitBd.Entry(user).Collection(u=>u.Automobiles).Load();
         return user;
     }
+    
     public User GetByName(string name)
     {
         return _automovileUnitBd.TUsers.Where(t => t.Name ==name && t.IsActive).FirstOrDefault();

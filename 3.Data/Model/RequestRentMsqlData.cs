@@ -34,6 +34,14 @@ public class RequestRentMsqlData: IRequestRentData
             Include(p => p.Owner).
             ToListAsync();
     }
+    public Task<List<RequestRent>> GetAllRequestRentByIdForTenantForRent(string id)
+    {
+        return _automovileUnitBd.TRentRequests.Where(p => p.TenantId == id&&p.StatusRequest==AutomobileRentStatus.Accepted)
+            .Include(p => p.Automobile)
+            .Include(p => p.Tenant).
+            Include(p => p.Owner).
+            ToListAsync();
+    }
 
     public bool UpdateRequestRent(RequestRent requestRent, string id)
     {

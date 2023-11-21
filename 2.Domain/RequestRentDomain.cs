@@ -27,6 +27,11 @@ public class RequestRentDomain:IRequestRentDomain
     {
         return _requestRentData.GetAllRequestRentByIdForTenant(id);
     }
+    public Task<List<RequestRent>> GetAllRequestRentByIdForTenantForRent(string id)
+    {
+        return _requestRentData.GetAllRequestRentByIdForTenantForRent(id);
+    }
+    
 
     public bool UpdateRequestRent(RequestRent requestRent, string id)
     {
