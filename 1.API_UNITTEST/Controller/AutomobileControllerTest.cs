@@ -70,8 +70,8 @@ public class AutomobileControllerTest
             .ReturnsAsync((Task<List<Automobile>> source) => source.Result.Select(item => new SearchAutomovilFilterResponse()).ToList());
 
         // Act
+        var result = controller.Get();
         var filter = new FilterAutomobileRequest();
-        var result = controller.Get(filter);
 
         // Assert
         Assert.IsType<OkObjectResult>(result);
