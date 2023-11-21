@@ -18,9 +18,8 @@ public class AutomobileDomain: IAutomobileDomain
         var user = _userData.GetById(userId);
         if (user!=null)
         {
-            automobile.statusRequest = AutomobileRentStatus.Waiting;
+            automobile.statusRequest = AutomobileRentStatus.Pending;
             return _automobileData.Create(automobile);
-            
         }
         else
         {

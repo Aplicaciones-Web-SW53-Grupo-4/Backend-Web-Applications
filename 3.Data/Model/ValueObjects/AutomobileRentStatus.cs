@@ -2,9 +2,7 @@
 
 public enum AutomobileRentStatus
 {
-    Waiting,
-    Required,
+    Pending,
     Accepted,
     Rejected,
-    Pending
 }

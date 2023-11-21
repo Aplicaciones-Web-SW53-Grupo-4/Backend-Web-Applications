@@ -110,7 +110,7 @@ public class AutomobileMsqlData : IAutomobileData
         return _automobileUnitBd.TAutomobiles
             .Where(p =>
                 (automobile.Brand == null || p.Brand == automobile.Brand) &&
-                (automobile.Model == null || p.Model == automobile.Model)&&
+                (automobile.Model == "" || p.Model == automobile.Model)&&
                 (automobile.Price == 0 || p.Price == automobile.Price))
             .ToListAsync();
 

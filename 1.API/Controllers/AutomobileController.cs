@@ -58,7 +58,8 @@ namespace _1.API.Controllers
             var automobileResult =  _automobileDomain.SearchByFilter(automobile).Result;
             // Return the result
             var response = _mapper.Map<List<Automobile>, List<AutomobileResponse>>(automobileResult);
-            return Ok(response);
+            
+            return Ok(filter);
         }
         
         [HttpGet("get-cars/{ownerID}")]

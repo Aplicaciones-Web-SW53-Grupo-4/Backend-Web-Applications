@@ -93,6 +93,5 @@ namespace _1.API.Controllers
             RequestRent requestRent = _mapper.Map<UpdateRequestRentRequest,RequestRent>(value);
             return _tRequestsDomain.UpdateRequestRent(requestRent, id);
         }
-
     }
 }
