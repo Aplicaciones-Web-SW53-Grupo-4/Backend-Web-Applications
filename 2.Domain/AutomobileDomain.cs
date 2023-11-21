@@ -36,7 +36,7 @@ public class AutomobileDomain: IAutomobileDomain
             }
         }
 
-        automobile.statusRequest = AutomobileRentStatus.Waiting;
+        automobile.statusRequest = AutomobileRentStatus.Pending;
 
         // Actualizar la información del usuario
         user.LastAutomobileCreation = DateTime.Now;
@@ -50,20 +50,8 @@ public class AutomobileDomain: IAutomobileDomain
     private bool IsUserValid(string userId)
     {
         var user = _userData.GetById(userId);
-<<<<<<< HEAD
-        if (user!=null)
-        {
-            automobile.statusRequest = AutomobileRentStatus.Pending;
-            return _automobileData.Create(automobile);
-        }
-        else
-        {
-            return false;
-        }
-
-=======
         return user != null;
->>>>>>> 231ac804456437ef2cb0ff26d058e63220f14fac
+
     }
     public bool Update(Automobile automobile, string id)
     {
