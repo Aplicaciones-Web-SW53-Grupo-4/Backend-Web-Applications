@@ -60,7 +60,7 @@ public class UserMsqlData :IUserData
         }
         catch (Exception error)
         {
-            //Logear
+           
             return false;
         }
     }
@@ -73,8 +73,7 @@ public class UserMsqlData :IUserData
             
             userToBeUpdated.DateUpdate = DateTime.Now;
             userToBeUpdated.IsActive = false;
-
-            //_learningCenterBd.Tutorials.Remove(tutorialToBeUpdated);/// ELimina física
+            
             
             _automovileUnitBd.TUsers.Update(userToBeUpdated);
             _automovileUnitBd.SaveChanges();
@@ -83,14 +82,12 @@ public class UserMsqlData :IUserData
         }
         catch (Exception error)
         {
-            //Logear
+
             return false;
         }
     }
     public User ValidateCredentials(string email, string password, UserType userType)
     {
-        // Implementa la validación de credenciales aquí
-        // Puedes buscar al usuario por correo electrónico y comparar contraseñas, y luego retornar el usuario válido si las credenciales son correctas
         return _automovileUnitBd.TUsers.FirstOrDefault(t => t.username == email
                                                             && t.password == password
                                                             && t.UserType == userType);

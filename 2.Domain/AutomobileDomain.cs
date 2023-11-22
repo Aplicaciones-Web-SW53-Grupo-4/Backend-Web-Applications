@@ -4,8 +4,8 @@ namespace _2.Domain;
 
 public class AutomobileDomain: IAutomobileDomain
 {
-    private const int IntervalMinutes = 10; // Define el intervalo de tiempo en minutos
-    private const int MaxAutomobilesPerInterval = 5; // Define el número máximo de automóviles por intervalo
+    private const int IntervalMinutes = 10; 
+    private const int MaxAutomobilesPerInterval = 5; 
     
     IAutomobileData _automobileData;
     IUserData _userData;
@@ -23,7 +23,7 @@ public class AutomobileDomain: IAutomobileDomain
             throw new InvalidOperationException("User is not valid");
         }
 
-        // Verificar la frecuencia de creación de automóviles
+
         var user = _userData.GetById(userId);
 
         if (user.LastAutomobileCreation != null)
@@ -38,7 +38,7 @@ public class AutomobileDomain: IAutomobileDomain
 
         automobile.statusRequest = AutomobileRentStatus.Pending;
 
-        // Actualizar la información del usuario
+
         user.LastAutomobileCreation = DateTime.Now;
         user.AutomobilesCreatedInInterval++;
 

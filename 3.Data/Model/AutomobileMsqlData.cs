@@ -42,7 +42,7 @@ public class AutomobileMsqlData : IAutomobileData
             };
         }
 
-        return null; // Maneja el caso en el que no se encuentren datos
+        return null; 
     }
 
 
